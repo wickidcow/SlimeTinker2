@@ -1,52 +1,49 @@
-name: Bug汇报
-description: 反馈本插件的Bug或问题
+name: Bug report
+description: Report a Bug or an Issue with this Plugin.
 labels: ["bug"]
-assignees:
-  - ybw0014
 body:
   - type: markdown
     attributes:
       value: |
-        ## 欢迎来到 SlimefunGuguProject 的问题追踪器
-        你正在反馈 SlimeTinker 汉化版出现的 Bug。
-        任何意见，建议请前往[QQ群](https://50l.cc/gugu-qgroup)进行反馈。
-        建议先阅读[这篇文章](https://slimefun-wiki.guizhanss.cn/How-to-report-bugs)了解如何正确地汇报Bug。
+        ## Welcome to SlimeTinker Bug Tracker
+        If you need any help to identify the problem, visit `#other-addons` channel in [Slimefun Discord server](https://discord.gg/slimefun).
+        You can also visit `#slime-tinker` channel in [Slimefun Addon Community](https://discord.gg/SqD3gg5SAU).
 
-        <strong><i>你必须填写标注为星号（*）的表单项</i></strong>
+        Also take a look at our list of [existing Issues](https://github.com/Sefiraat/SlimeTinker/issues).
+
+        <strong><i>Fields marked with an asterisk (*) are required.</i></strong>
 
   - type: checkboxes
     id: checklist
     attributes:
-      label: 检查项目
-      description: 在汇报之前，你需要确认
+      label: Checklist
+      description: Please go through this checklist before filling this bug report.
       options:
-        - label: 你使用的是从构建站下载的版本
+        - label: I am using official English version of SlimeTinker and did not modify jar.
           required: true
-        - label: 你已经检验过下载的文件的校验和，确认已完整下载文件
+        - label: I am using an up to date "DEV" version of SlimeTinker.
           required: true
-        - label: 你没有对下载的文件内容进行任何更改
-          required: true
-        - label: 你已经寻找过[已知问题列表](https://github.com/SlimefunGuguProject/SlimeTinker/issues)，且没有找到相同的问题
+        - label: I searched for similar open issues and could not find an existing bug report on this.
           required: true
 
   - type: textarea
     id: description
     attributes:
-      label: 问题描述
+      label: Description
       description: |
-        详细描述你要汇报的问题
-        提供详细的信息能让我们更快地处理问题
-      placeholder: 只说"不能用"没法让开发者定位问题。
+        A clear and detailed description of what exactly the Issue consists of.
+        Please try to write as much as possible. "it doesn't work" is not sufficient.
+        Try to write at least 4-6 sentences.
     validations:
       required: true
 
   - type: textarea
     id: reproduction
     attributes:
-      label: 复现步骤
+      label: Steps to reproduce
       description: |
-        请详细描述如何才能复现该问题
-        如果有视频，请在此提供视频链接
+        Tell us the exact steps to reproduce this issue, the more detailed the easier we can reproduce it.
+        Youtube Videos and Screenshots are recommended!
       placeholder: |
         1. xxx
         2. xxx
@@ -56,75 +53,108 @@ body:
   - type: textarea
     id: expected-behavior
     attributes:
-      label: 预期行为
+      label: Expected behavior
       description: |
-        你觉得应该发生什么
-        有时候，问题的原因是你误解了某个功能。
+        What did you expect to happen?
     validations:
       required: true
 
   - type: input
     id: server-log
     attributes:
-      label: 服务器日志
+      label: Server log
       description: |
-        请查看服务器日志中是否包含任何报错，如果有请上传至 [https://paste.guizhanss.net/](https://paste.guizhanss.net/) 并在此填入链接。
-        **不要直接在这里粘贴日志**
-      placeholder: https://paste.guizhanss.net/...
+        Take a look at your Server Log and please provide any error reports you can find via any paste site (e.g. https://pastebin.com/).
+        If you are unsure about it, post your full log, you can find it under /logs/latest.log
+        **DO NOT paste log here! Please use Pastebin!**
+      placeholder: https://pastebin.com/...
     validations:
       required: false
 
   - type: input
     id: error-report
     attributes:
-      label: 错误报告
+      label: Error report
       description: |
-        如果服务器日志中提到了`/plugins/Slimefun/error-reports`中的文件（即错误报告）
-        请上传至 [https://paste.guizhanss.net/](https://paste.guizhanss.net/) 并在此填入链接。
-        **不要直接在这里粘贴错误报告**
-      placeholder: https://paste.guizhanss.net/...
+        If server log mentioned any error report file, please provide us via any paste site (e.g. https://pastebin.com/).
+        You can find error reports under `/plugins/Slimefun/error-reports`.
+        **DO NOT paste log here! Please use Pastebin!**
+      placeholder: https://pastebin.com/...
     validations:
       required: false
 
   - type: dropdown
     id: server-software
     attributes:
-      label: 服务端软件
-      description: 请选择你服务端所使用的软件
+      label: Server software
+      description: Please select the software your Server is running on
       options:
         - Spigot
         - Paper
         - Purpur
         - Airplane
-        - 其他 (请在问题描述里写明)
+        - Other (please specify in your description)
     validations:
       required: true
 
-  - type: input
+  - type: dropdown
     id: minecraft-version
     attributes:
-      label: Minecraft 版本
-      description: 请填写你的 Minecraft 版本
+      label: Minecraft Version
+      description: Please select the Minecraft version of the server
+      options:
+        - 1.19.x
+        - 1.18.x
+        - 1.17.x
+        - 1.16.x
+        - (Older versions are not supported)
     validations:
       required: true
+
+  - type: checkboxes
+    id: cscorelib-version
+    attributes:
+      label: CS-CoreLib Version
+      description: |
+        As of Jan 30 2021, you no longer need to install CS-CoreLib to use Slimefun and addons (of course including SlimeTinker).
+        If you still have CS-CoreLib on your server, it may cause problems. We recommend you to remove it.
+      options:
+        - label: I don't have CS-CoreLib installed
+          required: true
 
   - type: textarea
     id: slimefun-version
     attributes:
-      label: Slimefun版本
+      label: Slimefun version
       description: |
-        请填写Slimefun版本
-        (例如 v4.9-canary-08120db)
-        如果你有管理员权限，建议运行`/sf versions`指令，截图并在此上传指令输出的**所有内容**。
+        **"latest" is not a version number, we need the exact version.**
+        We recommend running "/sf versions" and uploading a screenshot of that.
+        Make sure that the screenshot covers the entire output of that command.
+      placeholder: DEV - [...]
     validations:
       required: true
 
   - type: input
     id: version-plugin
     attributes:
-      label: 插件版本
+      label: SlimeTinker version
       description: |
-        请填写插件版本
-        (例如 Build 1 (git x114514))
+        **"latest" is not a version number, we need the exact version.**
+      placeholder: DEV - [...]
     validations:
       required: true
+
+  - type: textarea
+    id: other-versions
+    attributes:
+      label: Other plugins
+      description: |
+        If your issue is related to another plugin, make sure to include this here!
+      placeholder: The issue is related to plugin [...], version [...]
+
+  - type: markdown
+    attributes:
+      value: |
+        ## Thank you for submitting your bug report!
+        If you find any additional info that can help to identify this problem, don't hesitate to comment on your issue!
+        Any additional info can help us fix this bug faster.
