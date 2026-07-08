@@ -290,6 +290,16 @@ public final class PlayerDamagedEvents {
         }
     }
 
+    public static void plateSingTin(EventFriend friend) {
+        if (friend.getCause() == EntityDamageEvent.DamageCause.POISON) {
+            friend.setCancelEvent(true);
+            Player p = friend.getPlayer();
+            double maxHealth = p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue();
+            double healAmount = Math.max(1.0D, friend.getInitialDamage());
+            p.setHealth(Math.min(maxHealth, p.getHealth() + healAmount));
+        }
+    }
+
     public static void plateGold(EventFriend friend) {
         if (GeneralUtils.testChance(1, 100)) {
             Location l = friend.getPlayer().getLocation();

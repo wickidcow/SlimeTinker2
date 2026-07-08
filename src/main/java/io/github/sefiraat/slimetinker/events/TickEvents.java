@@ -641,7 +641,6 @@ public final class TickEvents {
 
     public static void plateSingTin(EventFriend friend) {
         Player p = friend.getPlayer();
-        if (p.hasPotionEffect(PotionEffectType.POISON)) p.removePotionEffect(PotionEffectType.POISON);
         if (p.hasPotionEffect(PotionEffectType.HUNGER)) p.removePotionEffect(PotionEffectType.HUNGER);
         if (p.hasPotionEffect(PotionEffectType.WEAKNESS)) p.removePotionEffect(PotionEffectType.WEAKNESS);
     }
