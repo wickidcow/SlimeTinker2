@@ -36,4 +36,4 @@ jobs:
           name: SlimeTinker2
           path: |
             target/*.jar
-            !target/original-*.jar
+
