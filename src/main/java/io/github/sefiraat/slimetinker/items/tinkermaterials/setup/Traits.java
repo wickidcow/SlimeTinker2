@@ -2766,7 +2766,7 @@ public final class Traits {
         .setTraitName("Feeling Connected")
         .setLore(
             "Allows you to connect wirelessly",
-            "to a network using direct nural",
+            "to a network using direct neural",
             "connection via your helmet.",
             "",
             "Shift + Left Click with an empty",
