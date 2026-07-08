@@ -1583,7 +1583,8 @@ public final class Traits {
         .setLore(
             "Poison heals and immune to hunger and weakness."
         )
-        .addConsumer(TraitEventType.TICK, TickEvents::plateSingTin);
+        .addConsumer(TraitEventType.TICK, TickEvents::plateSingTin)
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSingTin);
 
     public static final MaterialTrait INFINITY_TIN_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
