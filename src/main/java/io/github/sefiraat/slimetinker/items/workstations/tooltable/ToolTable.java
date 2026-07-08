@@ -92,7 +92,7 @@ public class ToolTable extends TickingMenuBlock {
         if (
             toolDefinition.getHeadMaterial().equals(Ids.REINFORCED_ALLOY) ||
                 toolDefinition.getRodMaterial().equals(Ids.HARDENED_METAL) ||
-                toolDefinition.getHeadMaterial().equals(Ids.IE_INFINITY_SINGULARITY) ||
+                toolDefinition.getHeadMaterial().equals(Ids.INFINITY_SINGULARITY) ||
                 toolDefinition.getHeadMaterial().equals(Ids.OSMIUM)
         ) { // Reinforced Head/Hard Rod tools are explosive
             switch (toolDefinition.getPartType()) {
@@ -169,11 +169,11 @@ public class ToolTable extends TickingMenuBlock {
         ItemStack rod = blockMenu.getItemInSlot(INPUT_ROD);
 
         if (head == null || binding == null || rod == null) { // Missing one or more items
-            player.sendMessage(ThemeUtils.ERROR + "需要放入所有部件");
+            player.sendMessage(ThemeUtils.ERROR + "Not all items present");
             return;
         }
         if (!validateClass(head, Ids.HEAD) || !validateBinder(binding) || !validateClass(rod, Ids.ROD)) { // One or more items are not the correct part
-            player.sendMessage(ThemeUtils.WARNING + "某栏位的部件无效");
+            player.sendMessage(ThemeUtils.WARNING + "One or more items are either not Tinker's parts or in the wrong slot?");
             return;
         }
 

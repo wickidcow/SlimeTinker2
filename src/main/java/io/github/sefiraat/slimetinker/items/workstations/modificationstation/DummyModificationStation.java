@@ -13,8 +13,11 @@ public final class DummyModificationStation {
         "DUMMY_MODIFICATION_STATION",
         Material.GRINDSTONE,
         ThemeItemType.MACHINE,
-        "匠魂模组工作站",
-        "在匠魂模组工作站中给匠魂装备安装模组"
+        "Tinker's Modification Station",
+        "Tools are augmented on the Modification",
+        "station using the appropriate material.",
+        "Once enough material has been added, the",
+        "modification will level."
     );
     public static final RecipeType TYPE = new RecipeType(Keys.WS_DUMMY_TOOL_TABLE, STACK);
 

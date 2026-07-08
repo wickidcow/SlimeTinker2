@@ -19,55 +19,55 @@ public final class ItemGroups {
 
     public static final MainFlexGroup MAIN = new MainFlexGroup(Keys.ITEM_GROUP_MAIN, new CustomItemStack(
         PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.CAT_MAIN)),
-        ThemeUtils.MAIN + "粘液匠魂"
+        ThemeUtils.MAIN + "SlimeTinker"
     ));
     public static final DummyItemGroup WORKSTATIONS = new DummyItemGroup(Keys.ITEM_GROUP_WORKSTATIONS, new CustomItemStack(
         PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.CAT_MAIN)),
-        ThemeUtils.MAIN + "工作站"
+        ThemeUtils.MAIN + "Workstations"
     ));
     public static final DummyItemGroup MATERIALS = new DummyItemGroup(Keys.ITEM_GROUP_MATERIALS, new CustomItemStack(
         PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.CAT_MATERIALS)),
-        ThemeUtils.MAIN + "材料"
+        ThemeUtils.MAIN + "Materials"
     ));
     public static final DummyItemGroup MOLTEN_METALS = new DummyItemGroup(Keys.ITEM_GROUP_MOLTEN, new CustomItemStack(
         PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.CAT_MOLTEN)),
-        ThemeUtils.MAIN + "熔融金属"
+        ThemeUtils.MAIN + "Molten Metals"
     ));
     public static final DummyItemGroup ALLOYS = new DummyItemGroup(Keys.ITEM_GROUP_ALLOYS, new CustomItemStack(
         PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.CAT_ALLOYS)),
-        ThemeUtils.MAIN + "熔融合金"
+        ThemeUtils.MAIN + "Alloy Metals"
     ));
     public static final DummyItemGroup CASTS = new DummyItemGroup(Keys.ITEM_GROUP_CASTS, new CustomItemStack(
         PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.CAT_CASTS)),
-        ThemeUtils.MAIN + "铸件"
+        ThemeUtils.MAIN + "Casts"
     ));
     public static final DummyItemGroup PARTS = new DummyItemGroup(Keys.ITEM_GROUP_PARTS, new CustomItemStack(
         PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.CAT_PARTS)),
-        ThemeUtils.MAIN + "部件制作指南"
+        ThemeUtils.MAIN + "Part Building Guide"
     ));
     public static final DummyItemGroup TOOLS = new DummyItemGroup(Keys.ITEM_GROUP_TOOLS, new CustomItemStack(
         Material.DIAMOND_SWORD,
-        ThemeUtils.MAIN + "工具制作指南"
+        ThemeUtils.MAIN + "Tool Building Guide"
     ));
     public static final DummyItemGroup ARMOUR = new DummyItemGroup(Keys.ITEM_GROUP_ARMOUR, new CustomItemStack(
         Material.DIAMOND_CHESTPLATE,
-        ThemeUtils.MAIN + "防具制作指南"
+        ThemeUtils.MAIN + "Armour Building Guide"
     ));
     public static final DummyItemGroup TRAITS = new DummyItemGroup(Keys.ITEM_GROUP_PROPERTIES, new CustomItemStack(
         PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.CAT_TRAITS)),
-        ThemeUtils.MAIN + "特性"
+        ThemeUtils.MAIN + "Metal Traits"
     ));
     public static final DummyItemGroup MODIFICATIONS = new DummyItemGroup(Keys.ITEM_GROUP_MODIFICATIONS, new CustomItemStack(
         Material.REDSTONE,
-        ThemeUtils.MAIN + "模组"
+        ThemeUtils.MAIN + "Mods"
     ));
     public static final DummyItemGroup PART_DICT = new DummyItemGroup(Keys.ITEM_GROUP_PART_DICT, new CustomItemStack(
         PlayerHead.getItemStack(PlayerSkin.fromBase64(SkullTextures.PART_PICKAXE_HEAD)),
-        ThemeUtils.MAIN + "所有部件"
+        ThemeUtils.MAIN + "Part Dictionary"
     ));
     public static final DummyItemGroup DUMMY = new DummyItemGroup(Keys.ITEM_GROUP_DUMMY, new CustomItemStack(
         Material.BARRIER,
-        ThemeUtils.MAIN + "SlimeTinker 占位符"
+        ThemeUtils.MAIN + "SlimeTinker Dummy"
     ));
 
     public static void set(SlimeTinker p) {

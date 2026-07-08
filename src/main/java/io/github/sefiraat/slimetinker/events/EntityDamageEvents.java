@@ -114,7 +114,7 @@ public final class EntityDamageEvents {
     }
 
     public static void linksIron(EventFriend friend) {
-        friend.setDamageMod(friend.getDamageMod() - 0.2);
+        friend.setDamageMod(friend.getDamageMod() - 0.1);
         friend.setPlayerExpMod(friend.getPlayerExpMod() + 0.1);
     }
 
@@ -125,7 +125,7 @@ public final class EntityDamageEvents {
     }
 
     public static void headBrass(EventFriend friend) {
-        friend.setDamageMod(friend.getDamageMod() + 0.2);
+        friend.setDamageMod(friend.getDamageMod() + 0.5);
     }
 
     public static void rodAlubrass(EventFriend friend) {
@@ -368,7 +368,7 @@ public final class EntityDamageEvents {
             friend.getDamagedEntity().teleport(friend.getDamagedEntity().getLocation().clone().setDirection(friend.getPlayer().getLocation().getDirection()));
             ItemUtils.setCooldown(i, "WARP", 20000);
         } else {
-            friend.getPlayer().sendMessage(ThemeUtils.WARNING + "别看我技能冷却中");
+            friend.getPlayer().sendMessage(ThemeUtils.WARNING + "This skill is on cooldown");
         }
 
     }

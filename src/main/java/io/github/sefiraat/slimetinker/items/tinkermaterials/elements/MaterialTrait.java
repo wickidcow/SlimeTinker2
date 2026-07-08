@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Locale;
@@ -58,20 +57,7 @@ public class MaterialTrait {
 
     @Nonnull
     public MaterialTrait setLore(@Nonnull String... lore) {
-        if (getPartType() == MaterialTrait.PROP_HEAD
-            || getPartType() == MaterialTrait.PROP_BINDING
-            || getPartType() == MaterialTrait.PROP_ROD) {
-            String[] appendix = new String[] {
-                "",
-                ThemeUtils.ITEM_MOLTEN_METAL + "必须手持工具或武器才有效果"
-            };
-            List<String> list = new ArrayList<>();
-            Collections.addAll(list, lore);
-            Collections.addAll(list, appendix);
-            this.lore = list.toArray(new String[0]);
-        } else {
-            this.lore = lore;
-        }
+        this.lore = lore;
         return this;
     }
 
@@ -132,10 +118,10 @@ public class MaterialTrait {
     public void setupTrait(@Nonnull TinkerMaterial parentCM) {
         List<String> newLore = new ArrayList<>(Arrays.asList(lore));
         newLore.add("");
-        newLore.add(ThemeUtils.ITEM_TYPEDESC + "来自: " + addedBy);
+        newLore.add(ThemeUtils.ITEM_TYPEDESC + "Added by: " + addedBy);
         if (this.sponsor != null) {
             newLore.add("");
-            newLore.add(ThemeUtils.ITEM_TYPEDESC + "由 " + sponsor + " 赞助");
+            newLore.add(ThemeUtils.ITEM_TYPEDESC + "Sponsored by: " + sponsor);
         }
         this.itemStack =
             ThemeUtils.themedItemStack(
@@ -147,7 +133,7 @@ public class MaterialTrait {
                 ),
                 getTraitTexture(addedBy),
                 ThemeItemType.PROP,
-                "特性: " + traitName,
+                "Trait : " + traitName,
                 newLore
             );
         this.item = new SlimefunItem(ItemGroups.TRAITS, itemStack, DummySmelteryTrait.TYPE, propRecipe(partType, parentCM.getRepresentativeStack()));
@@ -165,6 +151,9 @@ public class MaterialTrait {
         if (addedBy.equals(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)) {
             return SkullTextures.TRAITS_WARFARE;
         }
+        if (addedBy.equals(SupportedPluginsManager.DYNATECH_NOTE)) {
+            return SkullTextures.TRAITS_DYNATECH;
+        }
         if (addedBy.equals(SupportedPluginsManager.LITEXPANSION_NOTE)) {
             return SkullTextures.TRAITS_LITEXPANSION;
         }
@@ -181,50 +170,48 @@ public class MaterialTrait {
         "PROP_HEAD",
         SkullTextures.PART_SWORD_BLADE,
         ThemeItemType.PART,
-        "部件: 头部",
-        ThemeUtils.PASSIVE + "任何头部部件",
-        ThemeUtils.PASSIVE + "(例如: 镐头,铲头,斧刃等)"
+        "Part: Head",
+        ThemeUtils.PASSIVE + "Any 'Head' item (Sword Blade, Axe Head etc.)"
     );
 
     public static final SlimefunItemStack PROP_BINDING = ThemeUtils.themedItemStack(
         "PROP_BINDING",
         SkullTextures.PART_BINDING,
         ThemeItemType.PART,
-        "部件: 绑定结",
-        ThemeUtils.PASSIVE + "任何绑定结部件"
+        "Part: Binder",
+        ThemeUtils.PASSIVE + "Any 'Binder' item."
     );
 
     public static final SlimefunItemStack PROP_ROD = ThemeUtils.themedItemStack(
         "PROP_ROD",
         SkullTextures.PART_TOOL_ROD,
         ThemeItemType.PART,
-        "部件: 手柄",
-        ThemeUtils.PASSIVE + "任何手柄部件"
+        "Part: Tool Rod",
+        ThemeUtils.PASSIVE + "Any 'Tool Rod' item."
     );
 
     public static final SlimefunItemStack PROP_PLATES = ThemeUtils.themedItemStack(
         "PROP_PLATES",
         SkullTextures.PART_CHEST_PLATES,
         ThemeItemType.PART,
-        "部件: 盔甲板",
-        ThemeUtils.PASSIVE + "任何盔甲板部件",
-        ThemeUtils.PASSIVE + "(例如: 头盔板,胸甲板等)"
+        "Part: Plates",
+        ThemeUtils.PASSIVE + "Any 'Plate' item (Helm Plates, Boot Plates etc.)"
     );
 
     public static final SlimefunItemStack PROP_GAMBESON = ThemeUtils.themedItemStack(
         "PROP_GAMBESON",
         SkullTextures.PART_GAMBESON,
         ThemeItemType.PART,
-        "部件: 护身软甲",
-        ThemeUtils.PASSIVE + "任何护身软甲部件"
+        "Part: Gambeson",
+        ThemeUtils.PASSIVE + "Any 'Gambeson' item."
     );
 
     public static final SlimefunItemStack PROP_LINKS = ThemeUtils.themedItemStack(
         "PROP_LINKS",
         SkullTextures.PART_LINKS,
         ThemeItemType.PART,
-        "部件: 盔甲接合物",
-        ThemeUtils.PASSIVE + "任何盔甲接合物部件"
+        "Part: Mail Links",
+        ThemeUtils.PASSIVE + "Any 'Mail Link' item."
     );
 
     @Nonnull

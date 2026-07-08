@@ -67,7 +67,7 @@ public final class Keys {
     public static final NamespacedKey TRAITS_COOLDOWN_PROTECTIVE = create("ST_cd_protective");
     public static final NamespacedKey TRAITS_COOLDOWN_WARP = create("ST_cd_warp");
     public static final NamespacedKey TOOL_FLAG_TELEPORT = create("ST_stop_teleport");
-    public static final NamespacedKey ARMOUR_IE_INFINITY_CAPACITY_STORED = create("ST_infinite_cap_stored");
+    public static final NamespacedKey ARMOUR_INFINITE_CAPACITY_STORED = create("ST_infinite_cap_stored");
     public static final NamespacedKey ARMOUR_INFINITLY_POWERFUL_STORED = create("ST_infinite_pow_stored");
     public static final NamespacedKey ARMOUR_HYPERBOLIC_STORED = create("ST_hyperbolic_stored");
     public static final NamespacedKey ARMOUR_UNCONVENTIONAL_STORED = create("ST_unconventional_stored");

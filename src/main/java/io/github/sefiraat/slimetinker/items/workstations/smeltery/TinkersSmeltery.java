@@ -137,7 +137,7 @@ public class TinkersSmeltery extends TickingMenuBlock {
         Map<String, Integer> blockMapZY = getBlockMapZY(b);
 
         if (!blockMapXY.equals(blockMapMaster) && !blockMapZY.equals(blockMapMaster)) {
-            player.sendMessage(ThemeUtils.WARNING + "没有正确摆放该多方块结构");
+            player.sendMessage(ThemeUtils.WARNING + "This multiblock has not been setup correctly.");
             blockMenu.close();
         }
 

@@ -153,11 +153,11 @@ public class ArmourTable extends MenuBlock {
         ItemStack links = blockMenu.getItemInSlot(INPUT_MAIL_LINK);
 
         if (plates == null || gambeson == null || links == null) { // Missing one or more items
-            player.sendMessage(ThemeUtils.ERROR + "需要放入所有部件");
+            player.sendMessage(ThemeUtils.ERROR + "Not all items present");
             return;
         }
         if (!validate(plates, gambeson, links)) { // One or more items are not the correct part
-            player.sendMessage(ThemeUtils.WARNING + "某栏位的部件无效");
+            player.sendMessage(ThemeUtils.WARNING + "One or more items are either not Tinker's parts or in the wrong slot?");
             return;
         }
 

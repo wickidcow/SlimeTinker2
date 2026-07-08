@@ -43,17 +43,17 @@ public class SwappingStation extends MenuBlock {
 
         // No tool dummy!
         if (item == null) {
-            player.sendMessage(ThemeUtils.WARNING + "在第一格内放入匠魂装备");
+            player.sendMessage(ThemeUtils.WARNING + "Input a tool into the first slot.");
             return;
         }
 
         if (item.getAmount() > 1) {
-            player.sendMessage(ThemeUtils.WARNING + "匠魂装备不能堆叠");
+            player.sendMessage(ThemeUtils.WARNING + "Nope - nerd");
             return;
         }
 
         if (part == null) {
-            player.sendMessage(ThemeUtils.WARNING + "在第二格内放入替换的部件");
+            player.sendMessage(ThemeUtils.WARNING + "Input a replacement part into the second slot.");
             return;
         }
 
@@ -65,16 +65,16 @@ public class SwappingStation extends MenuBlock {
             if (partClass != null && ItemUtils.partIsTool(partClass)) {
                 swapTool(blockMenu, player, item, partClass, partType, partMaterial);
             } else {
-                player.sendMessage(ThemeUtils.WARNING + "该部件不能替换到此工具/武器上");
+                player.sendMessage(ThemeUtils.WARNING + "This part cannot be swapped onto this tool.");
             }
         } else if (ItemUtils.isArmour(item)) {
             if (partClass != null && ItemUtils.partIsArmour(partClass)) {
                 swapArmour(blockMenu, player, item, partClass, partType, partMaterial);
             } else {
-                player.sendMessage(ThemeUtils.WARNING + "该部件不能替换到此防具上");
+                player.sendMessage(ThemeUtils.WARNING + "This part cannot be swapped onto this tool.");
             }
         } else {
-            player.sendMessage(ThemeUtils.WARNING + "第一格内的物品不是匠魂工具/武器/防具");
+            player.sendMessage(ThemeUtils.WARNING + "The item in the first slot isn't a Tinker's item.");
         }
     }
 
@@ -87,7 +87,7 @@ public class SwappingStation extends MenuBlock {
     ) {
         // The part is a head part but the type is either null or not matching the tool (Axe head part for shovel etc.)
         if (partClass.equals(Ids.HEAD) && (partType != null && !partType.equals(ItemUtils.getToolTypeName(item)))) {
-            player.sendMessage(ThemeUtils.WARNING + "该工具头部与工具类型不一致,无法替换");
+            player.sendMessage(ThemeUtils.WARNING + "This head type cannot be swapped onto this tool.");
             return;
         }
 
@@ -129,7 +129,7 @@ public class SwappingStation extends MenuBlock {
     ) {
         // The part is a plate part but the type is either null or not matching the armour (Helm plates for boots etc..)
         if (partClass.equals(Ids.PLATE) && (partType != null && !partType.equals(ItemUtils.getArmourTypeName(item)))) {
-            player.sendMessage(ThemeUtils.WARNING + "该盔甲板与防具类型不一致,无法替换");
+            player.sendMessage(ThemeUtils.WARNING + "This plate type cannot be swapped onto this armour.");
             return;
         }
 
@@ -215,7 +215,7 @@ public class SwappingStation extends MenuBlock {
         return (
             (material.equals(Ids.REINFORCED_ALLOY) && part.equals(Ids.HEAD)) ||
                 (material.equals(Ids.HARDENED_METAL) && part.equals(Ids.ROD)) ||
-                (material.equals(Ids.IE_INFINITY_SINGULARITY) && part.equals(Ids.HEAD)) ||
+                (material.equals(Ids.INFINITY_SINGULARITY) && part.equals(Ids.HEAD)) ||
                 (material.equals(Ids.OSMIUM) && part.equals(Ids.HEAD))
         );
     }

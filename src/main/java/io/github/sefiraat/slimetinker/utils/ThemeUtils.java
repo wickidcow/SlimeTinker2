@@ -45,26 +45,27 @@ public final class ThemeUtils {
     public static final ChatColor ITEM_MULTIBLOCK = ChatColor.of("#3295a8");
     public static final ChatColor ADD_INFINITY = ChatColor.of("#7ecee0");
     public static final ChatColor ADD_SLIMEFUN_WARFARE = ChatColor.of("#c1db4d");
+    public static final ChatColor ADD_DYNATECH = ChatColor.of("#60d1cd");
     public static final ChatColor ADD_LITEXPANSION = ChatColor.of("#8a8a8a");
     public static final ChatColor ADD_TRANSCENDENCE = ChatColor.of("#c242f5");
     public static final ChatColor ADD_NETWORKS = ChatColor.of("#05ad08");
     public static final ChatColor GUIDE = ChatColor.of("#444444");
 
-    public static final String LORE_TYPE_CRAFT = ITEM_TYPEDESC + "合成材料";
-    public static final String LORE_TYPE_MACHINE = ITEM_TYPEDESC + "机器";
-    public static final String LORE_TYPE_DROP = ITEM_TYPEDESC + "掉落物";
-    public static final String LORE_TYPE_BASE = ITEM_TYPEDESC + "基础资源";
-    public static final String LORE_TYPE_CHEST = ITEM_TYPEDESC + "箱子";
-    public static final String LORE_MOLTEN_METAL = ITEM_TYPEDESC + "熔融金属";
-    public static final String LORE_LIQUID = ITEM_TYPEDESC + "部件材料";
-    public static final String LORE_CAST = ITEM_TYPEDESC + "铸件";
-    public static final String LORE_PART = ITEM_TYPEDESC + "部件";
-    public static final String LORE_TOOL = ITEM_TYPEDESC + "匠魂工具";
-    public static final String LORE_ARMOUR = ITEM_TYPEDESC + "匠魂防具";
-    public static final String LORE_INFO = ITEM_TYPEDESC + "信息";
-    public static final String LORE_MOD = ITEM_TYPEDESC + "模组";
-    public static final String LORE_PROP = ITEM_TYPEDESC + "特性";
-    public static final String LORE_MULTIBLOCK = ITEM_TYPEDESC + "多方块结构";
+    public static final String LORE_TYPE_CRAFT = ITEM_TYPEDESC + "Crafting Material";
+    public static final String LORE_TYPE_MACHINE = ITEM_TYPEDESC + "Machine";
+    public static final String LORE_TYPE_DROP = ITEM_TYPEDESC + "Drop";
+    public static final String LORE_TYPE_BASE = ITEM_TYPEDESC + "Base Resource";
+    public static final String LORE_TYPE_CHEST = ITEM_TYPEDESC + "Chest";
+    public static final String LORE_MOLTEN_METAL = ITEM_TYPEDESC + "Molten Metal";
+    public static final String LORE_LIQUID = ITEM_TYPEDESC + "TinkerMaterial";
+    public static final String LORE_CAST = ITEM_TYPEDESC + "Cast";
+    public static final String LORE_PART = ITEM_TYPEDESC + "Part";
+    public static final String LORE_TOOL = ITEM_TYPEDESC + "Tinker's Tool";
+    public static final String LORE_ARMOUR = ITEM_TYPEDESC + "Tinker's Armour";
+    public static final String LORE_INFO = ITEM_TYPEDESC + "Info";
+    public static final String LORE_MOD = ITEM_TYPEDESC + "Modification";
+    public static final String LORE_PROP = ITEM_TYPEDESC + "Material Trait";
+    public static final String LORE_MULTIBLOCK = ITEM_TYPEDESC + "Mutliblock";
 
     @Nonnull
     @ParametersAreNonnullByDefault

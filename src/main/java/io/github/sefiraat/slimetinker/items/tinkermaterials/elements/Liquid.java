@@ -8,7 +8,6 @@ import io.github.sefiraat.slimetinker.utils.ThemeUtils;
 import io.github.sefiraat.slimetinker.utils.enums.ThemeItemType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import net.guizhanss.minecraft.slimetinker.utils.LangUtils;
 import org.bukkit.inventory.ItemStack;
 
 public class Liquid {
@@ -24,13 +23,13 @@ public class Liquid {
 
     public void setupLiquid(TinkerMaterial parent) {
         this.parent = parent;
-        String titName = LangUtils.getMaterialName(parent.getId());
+        String titName = ThemeUtils.toTitleCase(parent.getId());
         this.itemStack = ThemeUtils.themedItemStack(
             parent.getId() + "_LIQUID",
             texture,
             ThemeItemType.MOLTEN_METAL,
-            "熔融" + titName,
-            ThemeUtils.PASSIVE + "熔融态" + titName
+            "Molten " + titName,
+            ThemeUtils.PASSIVE + "The molten form of " + titName
         );
 
         this.item = new SlimefunItem(ItemGroups.MOLTEN_METALS, itemStack, DummySmelteryMolten.TYPE, new ItemStack[]{

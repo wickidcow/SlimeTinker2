@@ -15,7 +15,6 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -25,10 +24,12 @@ public class MainFlexGroup extends FlexItemGroup {
 
     private static final ItemStack DOCS_ITEM_STACK = new CustomItemStack(
         Material.BOOK,
-        ThemeUtils.GUIDE + "附属 Wiki",
-        ThemeUtils.PASSIVE + "点击获取粘液匠魂 Wiki 链接",
+        ThemeUtils.GUIDE + "Documentation Wiki",
+        ThemeUtils.PASSIVE + "Click to get the link to the",
+        ThemeUtils.PASSIVE + "documentation Wiki for SlimeTinker",
+        ThemeUtils.PASSIVE + "and other Sefiraat addons.",
         "",
-        ThemeUtils.CLICK_INFO + "指南"
+        ThemeUtils.CLICK_INFO + "Guide"
     );
 
     private static final int GUIDE_BACK = 1;
@@ -65,7 +66,7 @@ public class MainFlexGroup extends FlexItemGroup {
     @Override
     @ParametersAreNonnullByDefault
     public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
-        final ChestMenu chestMenu = new ChestMenu(ThemeUtils.MAIN + "粘液匠魂");
+        final ChestMenu chestMenu = new ChestMenu(ThemeUtils.MAIN + "SlimeTinker");
 
         for (int slot : HEADER) {
             chestMenu.addItem(slot, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
@@ -87,16 +88,12 @@ public class MainFlexGroup extends FlexItemGroup {
             menu.addMenuClickHandler(slot, ((player1, i, itemStack, clickAction) -> false));
         }
 
-        // Sound
-        menu.addMenuOpeningHandler((p) -> p.playSound(p.getLocation(), Sound.ITEM_BOOK_PAGE_TURN, 1.0F, 1.0F));
-
         // Back
         menu.replaceExistingItem(
             GUIDE_BACK,
             ChestMenuUtils.getBackButton(
                 player,
-                "",
-                ChatColor.GRAY + Slimefun.getLocalization().getMessage(player, "guide.back.guide")
+                Slimefun.getLocalization().getMessage("guide.back.guide")
             )
         );
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
@@ -107,9 +104,9 @@ public class MainFlexGroup extends FlexItemGroup {
         // Docs
         menu.replaceExistingItem(DOCS, DOCS_ITEM_STACK);
         menu.addMenuClickHandler(DOCS, (player1, i1, itemStack1, clickAction) -> {
-            final TextComponent link = new TextComponent("点击此处前往Wiki");
+            final TextComponent link = new TextComponent("To access the documentation Wiki, please click here");
             link.setColor(ChatColor.YELLOW);
-            link.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://slimefun-addons-wiki.guizhanss.cn/slime-tinker/"));
+            link.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://sefiraat.dev/"));
             player.spigot().sendMessage(link);
             return false;
         });

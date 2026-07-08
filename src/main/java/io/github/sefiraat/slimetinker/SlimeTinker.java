@@ -56,8 +56,8 @@ public class SlimeTinker extends JavaPlugin implements SlimefunAddon {
     public void onEnable() {
 
         if (!getServer().getPluginManager().isPluginEnabled("GuizhanLibPlugin")) {
-            getLogger().log(Level.SEVERE, "本插件需要 鬼斩前置库插件(GuizhanLibPlugin) 才能运行!");
-            getLogger().log(Level.SEVERE, "从此处下载: https://50l.cc/gzlib");
+            getLogger().log(Level.SEVERE, "This plugin requires GuizhanLibPlugin to run.");
+            getLogger().log(Level.SEVERE, "Download: https://50l.cc/gzlib");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -67,8 +67,8 @@ public class SlimeTinker extends JavaPlugin implements SlimefunAddon {
         instance = this;
 
         getLogger().info("########################################");
-        getLogger().info("         Slime Tinker  粘液匠魂          ");
-        getLogger().info("       作者: Sefiraat 汉化: ybw0014      ");
+        getLogger().info("             SlimeTinker2              ");
+        getLogger().info(" Original by Sefiraat - IE2/Gugu fork ");
         getLogger().info("########################################");
 
         ItemGroups.set(this);

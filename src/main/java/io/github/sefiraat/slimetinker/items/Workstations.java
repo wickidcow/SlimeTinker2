@@ -5,6 +5,7 @@ import io.github.sefiraat.slimetinker.itemgroups.ItemGroups;
 import io.github.sefiraat.slimetinker.items.workstations.armourtable.ArmourTable;
 import io.github.sefiraat.slimetinker.items.workstations.modificationstation.ModificationStation;
 import io.github.sefiraat.slimetinker.items.workstations.repairbench.RepairBench;
+import io.github.sefiraat.slimetinker.items.workstations.smeltery.DummySmelteryMulti;
 import io.github.sefiraat.slimetinker.items.workstations.swappingstation.SwappingStation;
 import io.github.sefiraat.slimetinker.items.workstations.tooltable.ToolTable;
 import io.github.sefiraat.slimetinker.items.workstations.workbench.Workbench;
@@ -30,11 +31,11 @@ public final class Workstations {
         "TINKERS_SMELTERY_CORE",
         Material.CHISELED_POLISHED_BLACKSTONE,
         ThemeItemType.MACHINE,
-        "匠魂冶炼炉",
-        "把金属熔化为液体",
-        "然后可以冶炼合金",
-        "或根据模具浇铸出各种物品",
-        "需要岩浆作为燃料"
+        "Tinker's Smeltery",
+        "Melts down metals into liquids.",
+        "Metals can then be alloyed and",
+        "cast out into various forms.",
+        "Requires lava as fuel"
     );
 
     // Workbench
@@ -42,10 +43,11 @@ public final class Workstations {
         "TINKERS_WORKBENCH",
         Material.FLETCHING_TABLE,
         ThemeItemType.MACHINE,
-        "匠魂合成站",
-        "用来合成各种物品",
-        "包括匠魂工具的部件与建筑材料",
-        "也可以当成增强型工作台使用"
+        "Tinker's Workbench",
+        "Used for crafting various items",
+        "and parts for Tinker's tools and",
+        "constructions. Also acts as an",
+        "Enhanced Crafting Table."
     );
 
     // Tool Table
@@ -53,8 +55,8 @@ public final class Workstations {
         "TINKERS_TABLE",
         Material.SMITHING_TABLE,
         ThemeItemType.MACHINE,
-        "匠魂工具组装台",
-        "将部件组装为工具"
+        "Tinker's Tool Table",
+        "Combines parts into tools."
     );
 
     // Armour Table
@@ -62,8 +64,8 @@ public final class Workstations {
         "TINKERS_ARMOUR_TABLE",
         Material.SMITHING_TABLE,
         ThemeItemType.MACHINE,
-        "匠魂防具组装台",
-        "将部件组装为防具"
+        "Tinker's Armour Table",
+        "Combines parts into armour pieces."
     );
 
     // Repair
@@ -71,8 +73,8 @@ public final class Workstations {
         "TINKERS_REPAIR_BENCH",
         Material.CARTOGRAPHY_TABLE,
         ThemeItemType.MACHINE,
-        "匠魂修复台",
-        "修复匠魂装备"
+        "Tinker's Repair Bench",
+        "Repairs tools and weapons."
     );
 
     // Swapping
@@ -80,8 +82,8 @@ public final class Workstations {
         "TINKERS_SWAPPING_STATION",
         Material.LOOM,
         ThemeItemType.MACHINE,
-        "匠魂部件更换台",
-        "使用新的部件替换已有部件"
+        "Tinker's Swapping Station",
+        "Swaps parts of tools with new parts."
     );
 
     // Modification
@@ -89,8 +91,8 @@ public final class Workstations {
         "TINKERS_MOD_STATION",
         Material.GRINDSTONE,
         ThemeItemType.MACHINE,
-        "匠魂模组工作站",
-        "将模组安装到匠魂装备上"
+        "Tinker's Modification Station",
+        "Applies modifications to tools and weapons."
     );
 
     private static final ItemStack[] RECIPE_TINKERS_SMELTERY_MULTI = new ItemStack[]{
@@ -141,7 +143,7 @@ public final class Workstations {
         p.setWorkbench(new Workbench(ItemGroups.WORKSTATIONS, TINKERS_WORKBENCH, RecipeType.ENHANCED_CRAFTING_TABLE, RECIPE_TINKERS_WORKBENCH));
         p.getWorkbench().register(p);
 
-        new UnplaceableBlock(ItemGroups.WORKSTATIONS, TINKERS_SMELTERY_CORE, RecipeType.MULTIBLOCK, RECIPE_TINKERS_SMELTERY_MULTI).register(p);
+        new UnplaceableBlock(ItemGroups.WORKSTATIONS, TINKERS_SMELTERY_CORE, DummySmelteryMulti.TYPE, RECIPE_TINKERS_SMELTERY_MULTI).register(p);
         new ToolTable(ItemGroups.WORKSTATIONS, TINKERS_TABLE, Workbench.TYPE, RECIPE_TINKERS_TABLE).register(p);
         new ArmourTable(ItemGroups.WORKSTATIONS, TINKERS_ARMOUR_TABLE, Workbench.TYPE, RECIPE_TINKERS_ARMOUR_TABLE).register(p);
         new RepairBench(ItemGroups.WORKSTATIONS, TINKERS_REPAIR_BENCH, Workbench.TYPE, RECIPE_TINKERS_REPAIR_BENCH).register(p);

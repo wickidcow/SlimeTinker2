@@ -10,6 +10,7 @@ import io.github.sefiraat.slimetinker.items.tinkermaterials.elements.Alloy;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.recipes.CastResult;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.recipes.MoltenResult;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.setup.TinkersMaterialsCore;
+import io.github.sefiraat.slimetinker.items.tinkermaterials.setup.TinkersMaterialsDynatech;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.setup.TinkersMaterialsInfinity;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.setup.TinkersMaterialsLiteXpansion;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.setup.TinkersMaterialsNetworks;
@@ -96,7 +97,7 @@ public class TinkerMaterialManager {
     protected static final Map<TinkerMaterial, ItemStack> MAP_CAST_REPAIRKIT = new HashMap<>();
 
     private static final Map<String, TinkerMaterial> MAP = new HashMap<>();
-    private static final String VALIDATE_TRAIT_MESSAGE = "材料 {0} 没有 {1} 特性";
+    private static final String VALIDATE_TRAIT_MESSAGE = "The material {0} does not have a compatible trait type of {1}";
 
     public final Map<String, MoltenResult> meltingRecipes = new HashMap<>();
     public final Map<String, CastResult> castingRecipes = new HashMap<>();
@@ -112,6 +113,9 @@ public class TinkerMaterialManager {
         }
         if (SupportedPluginsManager.SLIMEFUN_WARFARE) {
             MAP.putAll(TinkersMaterialsSlimefunWarfare.getCmMap());
+        }
+        if (SupportedPluginsManager.DYNATECH) {
+            MAP.putAll(TinkersMaterialsDynatech.getCmMap());
         }
         if (SupportedPluginsManager.LITEXPANSION) {
             MAP.putAll(TinkersMaterialsLiteXpansion.getCmMap());

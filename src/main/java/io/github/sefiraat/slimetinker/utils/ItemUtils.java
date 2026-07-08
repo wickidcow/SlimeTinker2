@@ -12,7 +12,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import net.guizhanss.minecraft.slimetinker.utils.LangUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -161,9 +160,9 @@ public final class ItemUtils {
 
         // General Material information
         lore.add(ThemeUtils.getLine());
-        lore.add(ThemeUtils.CLICK_INFO + "头部: " + formatMaterialName(matHead));
-        lore.add(ThemeUtils.CLICK_INFO + "绑定结: " + formatMaterialName(matBind));
-        lore.add(ThemeUtils.CLICK_INFO + "手柄: " + formatMaterialName(matRod));
+        lore.add(ThemeUtils.CLICK_INFO + "H: " + formatMaterialName(matHead));
+        lore.add(ThemeUtils.CLICK_INFO + "B: " + formatMaterialName(matBind));
+        lore.add(ThemeUtils.CLICK_INFO + "R: " + formatMaterialName(matRod));
         lore.add(ThemeUtils.getLine());
 
         // Material properties
@@ -186,9 +185,9 @@ public final class ItemUtils {
             Mod mod = Modifications.getModificationDefinitionsTool().get(entry.getKey());
             if (mod.getRequirementMap().containsKey(level + 1)) {
                 String amountRequired = String.valueOf(mod.getRequirementMap().get(level + 1));
-                lore.add(ThemeUtils.CLICK_INFO + LangUtils.getMaterialName(entry.getKey()) + " 等级 " + entry.getValue() + ThemeUtils.PASSIVE + " - (" + mapAmounts.get(entry.getKey()) + "/" + amountRequired + ")");
+                lore.add(ThemeUtils.CLICK_INFO + ThemeUtils.toTitleCase(entry.getKey()) + " Level " + entry.getValue() + ThemeUtils.PASSIVE + " - (" + mapAmounts.get(entry.getKey()) + "/" + amountRequired + ")");
             } else {
-                lore.add(ThemeUtils.CLICK_INFO + LangUtils.getMaterialName(entry.getKey()) + " 等级 " + entry.getValue() + ThemeUtils.PASSIVE + " - (最高)");
+                lore.add(ThemeUtils.CLICK_INFO + ThemeUtils.toTitleCase(entry.getKey()) + " Level " + entry.getValue() + ThemeUtils.PASSIVE + " - (MAX)");
             }
         }
         if (!mapLevels.isEmpty()) {
@@ -211,9 +210,9 @@ public final class ItemUtils {
 
         // General Material information
         lore.add(ThemeUtils.getLine());
-        lore.add(ThemeUtils.CLICK_INFO + "板: " + formatMaterialName(matPlate));
-        lore.add(ThemeUtils.CLICK_INFO + "护身软甲: " + formatMaterialName(matGambeson));
-        lore.add(ThemeUtils.CLICK_INFO + "盔甲接合物: " + formatMaterialName(matLinks));
+        lore.add(ThemeUtils.CLICK_INFO + "P: " + formatMaterialName(matPlate));
+        lore.add(ThemeUtils.CLICK_INFO + "G: " + formatMaterialName(matGambeson));
+        lore.add(ThemeUtils.CLICK_INFO + "L: " + formatMaterialName(matLinks));
         lore.add(ThemeUtils.getLine());
 
         // Material properties
@@ -236,9 +235,9 @@ public final class ItemUtils {
             Mod mod = Modifications.getModificationDefinitionsArmour().get(entry.getKey());
             if (mod.getRequirementMap().containsKey(level + 1)) {
                 String amountRequired = String.valueOf(mod.getRequirementMap().get(level + 1));
-                lore.add(ThemeUtils.CLICK_INFO + LangUtils.getMaterialName(entry.getKey()) + " 等级 " + entry.getValue() + ThemeUtils.PASSIVE + " - (" + mapAmounts.get(entry.getKey()) + "/" + amountRequired + ")");
+                lore.add(ThemeUtils.CLICK_INFO + ThemeUtils.toTitleCase(entry.getKey()) + " Level " + entry.getValue() + ThemeUtils.PASSIVE + " - (" + mapAmounts.get(entry.getKey()) + "/" + amountRequired + ")");
             } else {
-                lore.add(ThemeUtils.CLICK_INFO + LangUtils.getMaterialName(entry.getKey()) + " 等级 " + entry.getValue() + ThemeUtils.PASSIVE + " - (最高)");
+                lore.add(ThemeUtils.CLICK_INFO + ThemeUtils.toTitleCase(entry.getKey()) + " Level " + entry.getValue() + ThemeUtils.PASSIVE + " - (MAX)");
             }
         }
         if (!mapLevels.isEmpty()) {
@@ -289,13 +288,13 @@ public final class ItemUtils {
         final String name = MessageFormat.format(
             "{0}{1}-{2}{3}-{4}{5} {6}{7}",
             TinkerMaterialManager.getById(first).getColor(),
-            LangUtils.getMaterialName(first),
+            ThemeUtils.toTitleCase(first),
             TinkerMaterialManager.getById(second).getColor(),
-            LangUtils.getMaterialName(second),
+            ThemeUtils.toTitleCase(second),
             TinkerMaterialManager.getById(third).getColor(),
-            LangUtils.getMaterialName(third),
+            ThemeUtils.toTitleCase(third),
             ChatColor.WHITE,
-            LangUtils.getToolOrArmorName(type)
+            ThemeUtils.toTitleCase(type)
         );
 
         im.setDisplayName(name);
@@ -422,7 +421,7 @@ public final class ItemUtils {
 
     @Nonnull
     public static String formatMaterialName(String s) {
-        return TinkerMaterialManager.getById(s).getColor() + LangUtils.getMaterialName(s);
+        return TinkerMaterialManager.getById(s).getColor() + ThemeUtils.toTitleCase(s);
     }
 
     @Nonnull
@@ -482,7 +481,7 @@ public final class ItemUtils {
         if (isTool(itemStack)) {
             return
                 !getToolHeadMaterial(itemStack).equals(Ids.DURALUMIN)
-                    && !getToolRodMaterial(itemStack).equals(Ids.IE_TITANIUM);
+                    && !getToolRodMaterial(itemStack).equals(Ids.TITANIUM);
 
         }
         return true;
@@ -503,7 +502,7 @@ public final class ItemUtils {
 
     public static boolean repairBenchEasyFix2(ItemStack itemStack) {
         if (isArmour(itemStack)) {
-            return getArmourLinksMaterial(itemStack).equals(Ids.IE_ALUMINUM_SINGULARITY);
+            return getArmourLinksMaterial(itemStack).equals(Ids.ALUMINUM_SINGULARITY);
         }
         return false;
     }
@@ -519,10 +518,10 @@ public final class ItemUtils {
     public static boolean isEnchanting(ItemStack itemStack) {
         if (isTool(itemStack)) {
             return getToolHeadMaterial(itemStack).equals(Ids.SILVER)
-                || getToolHeadMaterial(itemStack).equals(Ids.IE_SILVER_SINGULARITY);
+                || getToolHeadMaterial(itemStack).equals(Ids.SILVER_SINGULARITY);
         } else if (isArmour(itemStack)) {
             return getArmourLinksMaterial(itemStack).equals(Ids.SILVER)
-                || getArmourLinksMaterial(itemStack).equals(Ids.IE_SILVER_SINGULARITY);
+                || getArmourLinksMaterial(itemStack).equals(Ids.SILVER_SINGULARITY);
         } else {
             return false;
         }
@@ -540,9 +539,9 @@ public final class ItemUtils {
 
     public static boolean isEnchanting2(ItemStack itemStack) {
         if (isTool(itemStack)) {
-            return getToolHeadMaterial(itemStack).equals(Ids.IE_SILVER_SINGULARITY);
+            return getToolHeadMaterial(itemStack).equals(Ids.SILVER_SINGULARITY);
         } else if (isArmour(itemStack)) {
-            return getArmourLinksMaterial(itemStack).equals(Ids.IE_SILVER_SINGULARITY);
+            return getArmourLinksMaterial(itemStack).equals(Ids.SILVER_SINGULARITY);
         } else {
             return false;
         }
@@ -551,7 +550,7 @@ public final class ItemUtils {
     public static boolean isConductive(ItemStack itemStack) {
         if (isTool(itemStack)) {
             return getToolRodMaterial(itemStack).equals(Ids.COPPER)
-                || getToolRodMaterial(itemStack).equals(Ids.IE_COPPER_SINGULARITY);
+                || getToolRodMaterial(itemStack).equals(Ids.COPPER_SINGULARITY);
         } else {
             return false;
         }
@@ -567,7 +566,7 @@ public final class ItemUtils {
 
     public static boolean isConductive2(ItemStack itemStack) {
         if (isTool(itemStack)) {
-            return getToolRodMaterial(itemStack).equals(Ids.IE_COPPER_SINGULARITY);
+            return getToolRodMaterial(itemStack).equals(Ids.COPPER_SINGULARITY);
         } else {
             return false;
         }
@@ -654,14 +653,14 @@ public final class ItemUtils {
 
     @Nonnull
     public static String getLoreExp(PersistentDataContainer c) {
-        return ThemeUtils.ITEM_TOOL + "等级: " +
+        return ThemeUtils.ITEM_TOOL + "Level: " +
             ChatColor.WHITE + getTinkerLevel(c) +
             ThemeUtils.PASSIVE + " (" + getTinkerExp(c) + " / " + getTinkerRequiredExp(c) + ")";
     }
 
     @Nonnull
     public static String getLoreModSlots(PersistentDataContainer c) {
-        return ThemeUtils.ITEM_TOOL + "模组栏位: " +
+        return ThemeUtils.ITEM_TOOL + "Modifier Slots: " +
             ChatColor.WHITE + getTinkerModifierSlots(c);
     }
 
@@ -721,7 +720,7 @@ public final class ItemUtils {
     public static boolean isToolExplosive(@Nonnull String headMaterial, String rodMaterial) {
         return headMaterial.equals(Ids.REINFORCED_ALLOY)
             || rodMaterial.equals(Ids.HARDENED_METAL)
-            || headMaterial.equals(Ids.IE_INFINITY_SINGULARITY)
+            || headMaterial.equals(Ids.INFINITY_SINGULARITY)
             || headMaterial.equals(Ids.OSMIUM);
     }
 

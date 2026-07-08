@@ -9,7 +9,6 @@ import io.github.sefiraat.slimetinker.events.TickEvents;
 import io.github.sefiraat.slimetinker.events.friend.TraitEventType;
 import io.github.sefiraat.slimetinker.items.tinkermaterials.elements.MaterialTrait;
 import io.github.sefiraat.slimetinker.managers.SupportedPluginsManager;
-import io.github.sefiraat.slimetinker.utils.ThemeUtils;
 
 
 public final class Traits {
@@ -23,48 +22,46 @@ public final class Traits {
     public static final MaterialTrait CORE_IRON_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("稳定")
+        .setTraitName("Stability")
         .setLore(
-            "没有特性!"
+            "Does... nothing!"
         );
 
     public static final MaterialTrait CORE_IRON_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("锋利 1")
+        .setTraitName("Sharp 1")
         .setLore(
-            "获得力量效果 (可叠加)"
+            "Gives increased damage, stacks with",
+            "mods and other properties."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodIron);
 
     public static final MaterialTrait CORE_IRON_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("坚固")
+        .setTraitName("Steadfast")
         .setLore(
-            "有33%的几率免疫爆炸伤害"
+            "33% chance to ignore an explosion"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateIron);
 
     public static final MaterialTrait CORE_IRON_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("腐蚀")
+        .setTraitName("Rusty")
         .setLore(
-            "-20% 输出伤害",
-            "+10% 玩家经验获取"
+            "Armour durability loss +10%. Player Exp gain +10%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::linksIron);
 
     public static final MaterialTrait CORE_GOLD_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("金色面纱")
+        .setTraitName("Golden Veil")
         .setLore(
-            "获得隐身效果",
-            "",
-            "应用在武器上时: ",
-            "-100% 输出伤害"
+            "Makes the player invisible. If used on",
+            "a weapon, -100% damage."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headGold)
         .addConsumer(TraitEventType.TICK, TickEvents::headGold);
@@ -72,39 +69,37 @@ public final class Traits {
     public static final MaterialTrait CORE_GOLD_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("闪闪发光")
+        .setTraitName("All that Glitters")
         .setLore(
-            "获得发光效果"
+            "Makes you all shiny..."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodGold);
 
     public static final MaterialTrait CORE_GOLD_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("繁荣")
+        .setTraitName("Prosperous")
         .setLore(
-            "在受到伤害时",
-            "有1%几率掉落1个金粒"
+            "1% chance to drop a gold nugget when hit"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateGold);
 
     public static final MaterialTrait CORE_GOLD_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("来个交易")
+        .setTraitName("Barter")
         .setLore(
-            "猪灵会被你吸引",
-            "(周围5格内的猪灵不会攻击你)"
+            "Piglins like your armour"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksGold);
 
     public static final MaterialTrait CORE_COPPER_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("这是个脑力活")
+        .setTraitName("Brains, Not Brawn")
         .setLore(
-            "+50% 工具经验获取",
-            "-50% 输出伤害"
+            "Tool exp gain is doubled. Damage",
+            "dealt is halved."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headCopper)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headCopper);
@@ -113,18 +108,17 @@ public final class Traits {
         // Consumer not required - effect handled directly within Experience.java
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("经验传导")
+        .setTraitName("Conductive")
         .setLore(
-            "所有工具经验转化为玩家经验"
+            "All tool exp is converted to player exp."
         );
 
     public static final MaterialTrait CORE_COPPER_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("新手")
+        .setTraitName("Beginner")
         .setLore(
-            "+20% 防具经验获取",
-            "+25% 承受伤害"
+            "Damage taken +25%. Armour Exp +20%"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateCopper)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::plateCopper);
@@ -132,47 +126,45 @@ public final class Traits {
     public static final MaterialTrait CORE_COPPER_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("暗淡")
+        .setTraitName("Tarnished")
         .setLore(
-            "-20% 输出伤害",
-            "+20% 防具经验获取"
+            "Outgoing damage reduced by 25%. Armour Exp +20%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::linksCopper);
 
     public static final MaterialTrait CORE_LEAD_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("剧毒")
+        .setTraitName("Poisonous")
         .setLore(
-            "命中时有25%的几率附加中毒效果"
+            "25% chance to afflict poison on hit."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headLead);
 
     public static final MaterialTrait CORE_LEAD_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("蚂蟥")
+        .setTraitName("Leech")
         .setLore(
-            "获得额外血量,但会消耗能量",
-            "(获得饥饿,生命提升III效果)"
+            "Bonus health, but drains your energy."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodLead);
 
     public static final MaterialTrait CORE_LEAD_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("生病了")
+        .setTraitName("Sickly")
         .setLore(
-            "铅制防具并不是个好主意"
+            "Lead Armour is not a good idea"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateLead);
 
     public static final MaterialTrait CORE_LEAD_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("生病了")
+        .setTraitName("Sickly")
         .setLore(
-            "铅制防具并不是个好主意"
+            "Lead Armour is not a good idea"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksLead);
 
@@ -180,31 +172,28 @@ public final class Traits {
         // Consumer not required - effect handled directly within Experience.java
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("附魔")
+        .setTraitName("Enchanting")
         .setLore(
-            "-50% 工具经验获取",
-            "",
-            "工具升级时获得随机附魔",
-            "附魔可能并不适用于该工具"
+            "Tool exp gain is halved. Tools add a",
+            "random vanilla enchant when leveling. May or",
+            "may not match the tool type."
         );
 
     public static final MaterialTrait CORE_SILVER_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("轻触")
+        .setTraitName("Soft Touch")
         .setLore(
-            "你感觉轻松多了",
-            "(获得缓降III效果)"
+            "You feel lighter."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodSilver);
 
     public static final MaterialTrait CORE_SILVER_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("导电")
+        .setTraitName("Conductivity")
         .setLore(
-            "免疫闪电伤害",
-            "被闪电击中时在周围召唤闪电"
+            "Immune to lightning and even reflect it back!"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSilver);
 
@@ -212,28 +201,27 @@ public final class Traits {
         // Consumer not required - effect handled directly within Experience.java
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("附魔")
+        .setTraitName("Enchanting")
         .setLore(
-            "防具升级时获得随机附魔",
-            "附魔可能并不适用于该防具"
+            "Gains a random enchantment every time this",
+            "piece of armour levels up. May not be useful."
         );
 
     public static final MaterialTrait CORE_ALUMINUM_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("再生资源")
+        .setTraitName("Recyclable")
         .setLore(
-            "使用时有25%的几率恢复耐久"
+            "Chance to restore durability on hit/block break"
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headAluminum);
 
     public static final MaterialTrait CORE_ALUMINUM_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("柔韧")
+        .setTraitName("Soft")
         .setLore(
-            "+200% 耐久消耗",
-            "+50% 工具经验获取"
+            "Durability loss +100%, tool EXP +50%."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::rodAluminum)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodAluminum)
@@ -242,10 +230,9 @@ public final class Traits {
     public static final MaterialTrait CORE_ALUMINUM_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("快跑")
+        .setTraitName("Foil")
         .setLore(
-            "+50% 承受伤害",
-            "获得速度效果"
+            "Damage Taken +50%. Speed + 1"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateAluminum)
         .addConsumer(TraitEventType.TICK, TickEvents::plateAluminum);
@@ -254,18 +241,17 @@ public final class Traits {
         // Special case - in RepairBench.java. Will have to stay there
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("快速修复")
+        .setTraitName("Easily Shaped")
         .setLore(
-            "只需要1个修复工具即可完全修复"
+            "Repairs only need a single kit."
         );
 
     public static final MaterialTrait CORE_TIN_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("幸运")
+        .setTraitName("Malleable")
         .setLore(
-            "-50% 输出伤害",
-            "获得幸运效果"
+            "Deal 50% less damage but gain luck."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headTin)
         .addConsumer(TraitEventType.TICK, TickEvents::headTin);
@@ -273,96 +259,93 @@ public final class Traits {
     public static final MaterialTrait CORE_TIN_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("罐头")
+        .setTraitName("Can")
         .setLore(
-            "你不再饥饿,但你变得更加虚弱",
-            "(获得饱和和虚弱效果)"
+            "Your hunger just fades away"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodTin);
 
     public static final MaterialTrait CORE_TIN_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("抗毒")
+        .setTraitName("Non-Corrosive")
         .setLore(
-            "免疫中毒效果"
+            "Immune to poison"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateTin);
 
     public static final MaterialTrait CORE_TIN_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("承伤")
+        .setTraitName("Boost")
         .setLore(
-            "当受到伤害时,获得伤害吸收效果"
+            "When taking heavy damage, gain absorption"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksTin);
 
     public static final MaterialTrait CORE_ZINC_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("海豚的恩惠")
+        .setTraitName("Graceful")
         .setLore(
-            "激活海豚的力量!",
-            "(获得海豚的恩惠效果)"
+            "DOLPHIN POWERS, ACTIVATE!"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::headZinc);
 
     public static final MaterialTrait CORE_ZINC_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("飘浮")
+        .setTraitName("Super Lightweight")
         .setLore(
-            "未蹲下时让你变得比空气还轻",
-            "(获得飘浮II效果)"
+            "Makes you lighter than air when not sneaking."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodZinc);
 
     public static final MaterialTrait CORE_ZINC_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("偷袭")
+        .setTraitName("Sneaky")
         .setLore(
-            "当目标看向别处时,",
-            "+100% 对其造成的伤害"
+            "Damage doubled if target is facing away.",
+            "Small tolerance"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::plateZinc);
 
     public static final MaterialTrait CORE_ZINC_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("针灸")
+        .setTraitName("Acupuncture")
         .setLore(
-            "免疫来自仙人掌的伤害"
+            "Take no damage from cactus pricks"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksZinc);
 
     public static final MaterialTrait CORE_MAGNESIUM_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("燃烧")
+        .setTraitName("Flammable")
         .setLore(
-            "有(工具等级 x 5)%的几率",
-            "让敌人着火"
+            "Has a (Tool level x 5)% chance to",
+            "set your enemies ablaze."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headMagnesium);
 
     public static final MaterialTrait CORE_MAGNESIUM_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("磁铁")
+        .setTraitName("Magnetesium")
         .setLore(
-            "随机捡起附近5格范围内的物品"
+            "Random items are drawn to you from",
+            "within a 5 block range"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodMagnesium);
 
     public static final MaterialTrait CORE_MAGNESIUM_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("快溜")
+        .setTraitName("Light")
         .setLore(
-            "-25% 输出伤害",
-            "获得速度效果"
+            "Damage dealt -25%. Speed + 1"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::plateMagnesium)
         .addConsumer(TraitEventType.TICK, TickEvents::plateMagnesium);
@@ -370,102 +353,93 @@ public final class Traits {
     public static final MaterialTrait CORE_MAGNESIUM_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("镁地™夜视")
+        .setTraitName("MagneSight™")
         .setLore(
-            "获得夜视和虚弱效果"
+            "Gain Nightvision."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksMagnesium);
 
     public static final MaterialTrait CORE_STEEL_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("不锈钢")
+        .setTraitName("Stainless")
         .setLore(
-            "可以抵挡鲜血",
-            "(仅视觉效果)"
+            "The tool/weapon repels blood."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headSteel);
 
     public static final MaterialTrait CORE_STEEL_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("轻量")
+        .setTraitName("Lightweight")
         .setLore(
-            "+50% 工具经验获取",
-            "获得速度效果"
+            "Tool Exp +50%. Speed + 1"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodSteel);
 
     public static final MaterialTrait CORE_STEEL_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("坚硬")
+        .setTraitName("Hardy")
         .setLore(
-            "-25% 受到的爆炸伤害"
+            "Explosions do 25% less damage"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSteel);
 
     public static final MaterialTrait CORE_STEEL_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("强壮")
+        .setTraitName("Strong")
         .setLore(
-            "获得生命提升效果"
+            "Health boost + 1"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksSteel);
 
     public static final MaterialTrait CORE_DAMASCUS_STEEL_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("吸血鬼")
+        .setTraitName("Vampirism")
         .setLore(
-            "造成伤害时有33%的几率恢复1点血量",
-            "-50% 伤害 (日间)",
-            "+50% 伤害 (夜间)"
+            "Chance to heal by damage given.",
+            "Damage dealt varies by time of day."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headDamsteel);
 
     public static final MaterialTrait CORE_DAMASCUS_STEEL_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("夜行者")
+        .setTraitName("Nightstalker")
         .setLore(
-            "获得夜视效果"
+            "Gives night vision."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodDamsteel);
 
     public static final MaterialTrait CORE_DAMASCUS_STEEL_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("复用")
+        .setTraitName("Compounding")
         .setLore(
-            "获得生命提升效果",
-            "其等级取决于含有复用特性的防具数量",
-            "1件 \u21e8 1级",
-            "2件 \u21e8 3级",
-            "3件 \u21e8 6级",
-            "4件 \u21e8 10级"
+            "Gain extra health equal for each compounding",
+            "piece. Amount stacks on it's own gain"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateDamSteel);
 
     public static final MaterialTrait CORE_DAMASCUS_STEEL_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("荆棘")
+        .setTraitName("Snroht")
         .setLore(
-            "免疫并反弹荆棘伤害"
+            "Thorns damage is ignored and reflected back"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksDamSteel);
 
     public static final MaterialTrait CORE_DURALUMIN_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("耐用")
+        .setTraitName("Durable")
         .setLore(
-            "工具损坏时依然可用,但:",
-            "-50% 输出伤害",
-            "获得挖掘疲劳效果",
-            "无法获得工具经验"
+            "Ignores being broken but damage 50%,",
+            "mining will be slower and 0 exp."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headDuralium)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headDuralium)
@@ -475,191 +449,183 @@ public final class Traits {
         // Special case - in RepairBench.java. Will have to stay there
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("完全修复")
+        .setTraitName("Easy Fix")
         .setLore(
-            "只需要1格修复工具即可完全修复"
+            "Only 1 kit is needed to fully repair."
         );
 
     public static final MaterialTrait CORE_DURALUMIN_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("耐用")
+        .setTraitName("Durable")
         .setLore(
-            "防具损坏时依然可用,但:",
-            "+20% 承受伤害"
+            "Works when broken but damage taken +20%"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateDuralium);
 
     public static final MaterialTrait CORE_DURALUMIN_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("减震剂")
+        .setTraitName("Shock Absorbant")
         .setLore(
-            "有10%的几率免疫伤害",
-            "多个特性不会提高该几率"
+            "10% chance to ignore damage. Not additive"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksDuralium);
 
     public static final MaterialTrait CORE_BRONZE_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("防火")
+        .setTraitName("Resistance")
         .setLore(
-            "获得防火效果"
+            "Gives fire resistance while held."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::headBronze);
 
     public static final MaterialTrait CORE_BRONZE_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("不对劲")
+        .setTraitName("Ingheights")
         .setLore(
-            "一定是这个工具有问题,一定是..."
+            "Something is wrong with this tool."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodBronze);
 
     public static final MaterialTrait CORE_BRONZE_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("农民")
+        .setTraitName("Farmer")
         .setLore(
-            "收获农作物时增加1个掉落物",
-            "该效果不会受到时运的影响",
-            "该效果不会叠加,但可被其他特性影响"
+            "All crops drop 1 extra item. Not affected by fortune.",
+            "Does not stack with itself but does with other effects."
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::plateBronze);
 
     public static final MaterialTrait CORE_BRONZE_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("脆弱")
+        .setTraitName("Brittle")
         .setLore(
-            "+100% 耐久消耗"
+            "Durability loss doubled."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::linksBrass);
 
     public static final MaterialTrait CORE_ALUMINUM_BRONZE_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("锋利 2")
+        .setTraitName("Sharp 2")
         .setLore(
-            "获得力量效果 (可叠加)"
+            "Gives increased damage, stacks with",
+            "mods and other properties."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::headAlubronze);
 
     public static final MaterialTrait CORE_ALUMINUM_BRONZE_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("脆弱")
+        .setTraitName("Brittle")
         .setLore(
-            "+100% 耐久消耗"
+            "Durability loss is doubled."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::rodAluBronze);
 
     public static final MaterialTrait CORE_ALUMINUM_BRONZE_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("鲜花")
+        .setTraitName("Beautiful")
         .setLore(
-            "在行走时有几率让周围的草地上开花"
+            "Chance to grow flowers as you walk."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateAluBronze);
 
     public static final MaterialTrait CORE_ALUMINUM_BRONZE_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("弹射!")
+        .setTraitName("Eject!")
         .setLore(
-            "当血量低于一半时受到伤害",
-            "会弹射起飞!",
-            "(获得飘浮III效果)"
+            "If damaged when below 1/2 health - Eject!"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksAluBronze);
 
     public static final MaterialTrait CORE_HARDENED_METAL_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("击退")
+        .setTraitName("Tuff Stuff")
         .setLore(
-            "击退任何命中的生物",
-            "有几率禁锢目标"
+            "Knocks back anything hit with a chance",
+            "to stun."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headHard);
 
     public static final MaterialTrait CORE_HARDENED_METAL_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("锤子")
+        .setTraitName("Heavy")
         .setLore(
-            "可挖掘 3x3x3 区域"
+            "Mines in a 3x3 area."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::explosive);
 
     public static final MaterialTrait CORE_HARDENED_METAL_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("坚韧")
+        .setTraitName("Toughened")
         .setLore(
-            "不消耗耐久"
+            "Will not lose durability."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::plateHardened);
 
     public static final MaterialTrait CORE_HARDENED_METAL_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("地精")
+        .setTraitName("Dwarven Skills")
         .setLore(
-            "在挖矿时有几率找到不稀有的物品",
-            "该几率可以叠加"
+            "Chance to find rare artifacts while mining."
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::linksHardened);
 
     public static final MaterialTrait CORE_CORINTHIAN_BRONZE_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("炽热")
+        .setTraitName("Flaming Hot")
         .setLore(
-            "可熔炼掉落物",
-            "",
-            "这也许是把熔炉镐?"
+            "Smelts broken blocks when possible."
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headCorbronze);
 
     public static final MaterialTrait CORE_CORINTHIAN_BRONZE_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("烫烫烫")
+        .setTraitName("Too Hot to Handle")
         .setLore(
-            "&k锟斤拷"
+            "?"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodCorbronze);
 
     public static final MaterialTrait CORE_CORINTHIAN_BRONZE_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("高温")
+        .setTraitName("Superhot")
         .setLore(
-            "有几率使周围实体着火"
+            "Chance to set nearby entities on fire"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateCorBronze);
 
     public static final MaterialTrait CORE_CORINTHIAN_BRONZE_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("温血")
+        .setTraitName("Warm Blodded")
         .setLore(
-            "在地狱获得速度II效果",
-            "在末地获得缓慢效果"
+            "Speed + 2 when hot in the nether.",
+            "Slow + 1 when cold in the end"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksCorBronze);
 
     public static final MaterialTrait CORE_SOLDER_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("隐身")
+        .setTraitName("Hidden")
         .setLore(
-            "获得隐身效果",
-            "但在使用时会立即损坏"
+            "Grants invisibility, breaks instantly."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headSolder)
         .addConsumer(TraitEventType.TICK, TickEvents::headSolder);
@@ -668,18 +634,18 @@ public final class Traits {
         // Special Case - in EntityKilledListener.java and DropItemListener.java - likely wont move
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("绑定")
+        .setTraitName("Fused")
         .setLore(
-            "工具无法被丢弃",
-            "也不会在死亡时掉落"
+            "Tool cannot be dropped either by the",
+            "player or on death."
         );
 
     public static final MaterialTrait CORE_SOLDER_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("软着陆")
+        .setTraitName("Soft Landing")
         .setLore(
-            "免疫鞘翅的撞击伤害"
+            "Hitting walls no longer hurts"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSolder);
 
@@ -687,58 +653,54 @@ public final class Traits {
         // Special Case - in EntityKilledListener.java and DropItemListener.java - likely wont move
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("绑定")
+        .setTraitName("Fused")
         .setLore(
-            "防具无法被丢弃",
-            "也不会在死亡时掉落"
+            "Cannot be dropped on death or on purpose."
         );
 
     public static final MaterialTrait CORE_BILLON_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("速掘")
+        .setTraitName("Fast")
         .setLore(
-            "获得急迫效果",
-            "(可叠加)"
+            "Move speed increased and haste applied.",
+            "Stacks with modifiers."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::headBillon);
 
     public static final MaterialTrait CORE_BILLON_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("弹簧")
+        .setTraitName("Springs")
         .setLore(
-            "让你跳的更高",
-            "(获得跳跃提升IV效果)"
+            "Makes you jump higher."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodBillon);
 
     public static final MaterialTrait CORE_BILLON_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("天使降临")
+        .setTraitName("WHM")
         .setLore(
-            "你的攻击将治疗目标",
-            "而不是伤害目标"
+            "Your attacks heal instead of harm."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::plateBillon);
 
     public static final MaterialTrait CORE_BILLON_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("热导体")
+        .setTraitName("Heat Conductor")
         .setLore(
-            "免疫岩浆块的伤害"
+            "Magma blocks no longer cause damage"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksBillon);
 
     public static final MaterialTrait CORE_BRASS_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("倒霉鬼")
+        .setTraitName("Stiff")
         .setLore(
-            "+20% 输出伤害",
-            "获得厄运III效果"
+            "Damage +50% but makes you unlucky"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headBrass)
         .addConsumer(TraitEventType.TICK, TickEvents::headBrass);
@@ -746,21 +708,19 @@ public final class Traits {
     public static final MaterialTrait CORE_BRASS_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("氧气")
+        .setTraitName("Oxygenated")
         .setLore(
-            "获得水下呼吸效果"
+            "Gives water breathing while held."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodBrass);
 
     public static final MaterialTrait CORE_BRASS_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("绑定环")
+        .setTraitName("Band")
         .setLore(
-            "+200% 耐久消耗",
-            "承受伤害将根据耐久度计算:",
-            "耐久高于一半时减少承受伤害,满耐久度时最多减少25%",
-            "耐久低于一半时增加承受伤害,1耐久度时最多增加25%"
+            "Durability loss + 200%. Damage reduced between 1-25%",
+            "getting lower as durability drops."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateBrass)
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::plateBrass);
@@ -768,32 +728,29 @@ public final class Traits {
     public static final MaterialTrait CORE_BRASS_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("崩!撤!卖!溜!")
+        .setTraitName("Scarpaaarr!")
         .setLore(
-            "+100% 耐久消耗",
-            "当血量低于一半时受到伤害",
-            "获得速度III效果"
+            "Durability loss doubled. When damaged below 1/2 health, gain Speed 3."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksBrass);
 
     public static final MaterialTrait CORE_ALUMINUM_BRASS_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("阿布拉")
+        .setTraitName("Abra")
         .setLore(
-            "命中生物时有33%的几率",
-            "使目标随机传送"
+            "Any hit mob has a % chance to be",
+            "randomly teleported."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headAluBrass);
 
     public static final MaterialTrait CORE_ALUMINUM_BRASS_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("好学")
+        .setTraitName("Studious")
         .setLore(
-            "+50% 工具经验获取",
-            "+50% 玩家经验获取",
-            "-50% 输出伤害"
+            "Tool and Player exp +50% but damage halved",
+            "and you are slower to act."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodAlubrass)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::rodAluBrass);
@@ -801,124 +758,107 @@ public final class Traits {
     public static final MaterialTrait CORE_ALUMINUM_BRASS_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("巫师")
+        .setTraitName("Magus")
         .setLore(
-            "-50% 承受的魔法伤害"
+            "Magic Damage -50%"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateAluBrass);
 
     public static final MaterialTrait CORE_ALUMINUM_BRASS_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("逃脱")
+        .setTraitName("Escape")
         .setLore(
-            "受到伤害时随机传送到附近",
-            "(CD: 10秒)"
+            "Randomly teleport then hit (CD: 10s)"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksAluBrass);
 
     public static final MaterialTrait CORE_NICKEL_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("带电(负极-)")
+        .setTraitName("Charged Head -")
         .setLore(
-            "有20%的几率",
-            "+200% 输出伤害",
-            "并禁锢目标",
-            "(需要与正极同时存在才能生效)"
+            "Doesn't do anything... on it's own..."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::charged);
 
     public static final MaterialTrait CORE_NICKEL_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("带电(负极-)")
+        .setTraitName("Charged Rod -")
         .setLore(
-            "有20%的几率",
-            "+200% 输出伤害",
-            "并禁锢目标",
-            "(需要与正极同时存在才能生效)"
+            "Doesn't do anything... on it's own..."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::charged);
 
     public static final MaterialTrait CORE_NICKEL_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("磁铁(负极-)")
+        .setTraitName("Magnetic -")
         .setLore(
-            "磁铁的负极",
-            "磁铁可以自动吸收周围的掉落物",
-            "范围 = (磁铁正极数 + 磁铁负极数) - (磁铁正级数与负极数的差异)",
-            "(即磁铁正负极数越多,且正负极数尽量一致,即可增大范围)"
+            "Gain 1 Stack of Magnetism and 1 Stack of Negativity.",
+            "Magnetism draws in all nearby items.",
+            "Range = Magnetism Level - (∆ Positivity/Negativity)"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateNickel);
 
     public static final MaterialTrait CORE_NICKEL_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("磁铁(负极-)")
+        .setTraitName("Magnetic -")
         .setLore(
-            "磁铁的负极",
-            "磁铁可以自动吸收周围的掉落物",
-            "范围 = (磁铁正极数 + 磁铁负极数) - (磁铁正级数与负极数的差异)",
-            "(即磁铁正负极数越多,且正负极数尽量一致,即可增大范围)"
+            "Gain 1 Stack of Magnetism and 1 Stack of Negativity.",
+            "Magnetism draws in all nearby items.",
+            "Range = Magnetism Level - (∆ Positivity/Negativity)"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksNickel);
 
     public static final MaterialTrait CORE_COBALT_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("带电(正极+)")
+        .setTraitName("Charged Head +")
         .setLore(
-            "有20%的几率",
-            "+200% 输出伤害",
-            "并禁锢目标",
-            "(需要与负极同时存在才能生效)"
+            "Doesn't do anything... on it's own..."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::charged);
 
     public static final MaterialTrait CORE_COBALT_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("带电(正极+)")
+        .setTraitName("Charged Rod +")
         .setLore(
-            "有20%的几率",
-            "+200% 输出伤害",
-            "并禁锢目标",
-            "(需要与负极同时存在才能生效)"
+            "Doesn't do anything... on it's own..."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::charged);
 
     public static final MaterialTrait CORE_COBALT_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("磁铁(正极+)")
+        .setTraitName("Magnetic +")
         .setLore(
-            "磁铁的正极",
-            "磁铁可以自动吸收周围的掉落物",
-            "范围 = (磁铁正极数 + 磁铁负极数) - (磁铁正级数与负极数的差异)",
-            "(即磁铁正负极数越多,且正负极数尽量一致,即可增大范围)"
+            "Gain 1 Stack of Magnetism and 1 Stack of Negativity.",
+            "Magnetism draws in all nearby items.",
+            "Range = Magnetism Level - (∆ Positivity/Negativity)"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateCobalt);
 
     public static final MaterialTrait CORE_COBALT_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("磁铁(正极+)")
+        .setTraitName("Magnetic +")
         .setLore(
-            "磁铁的正极",
-            "磁铁可以自动吸收周围的掉落物",
-            "范围 = (磁铁正极数 + 磁铁负极数) - (磁铁正级数与负极数的差异)",
-            "(即磁铁正负极数越多,且正负极数尽量一致,即可增大范围)"
+            "Gain 1 Stack of Magnetism and 1 Stack of Positivity.",
+            "Magnetism draws in all nearby items.",
+            "Range = Magnetism Level - (∆ Positivity/Negativity)"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksCobalt);
 
     public static final MaterialTrait CORE_REINFORCED_ALLOY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("锤子")
+        .setTraitName("Bulky")
         .setLore(
-            "可挖掘 3x3x3 区域"
+            "Mines in a 3x3 area"
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::explosive);
 
@@ -926,10 +866,9 @@ public final class Traits {
         // Special Case - nested within plate mod. Will be moved when mods are changed to consumers
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("双倍强化")
+        .setTraitName("Reinforced")
         .setLore(
-            "强化合金板模组拥有双倍效果",
-            "(只需5个即可不消耗耐久)"
+            "Any Plate mod on the tool is counted twice."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::explosive);
 
@@ -937,54 +876,52 @@ public final class Traits {
         // Special Case - nested within plate mod. Will be moved when mods are changed to consumers
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("双倍强化")
+        .setTraitName("Reinforcable")
         .setLore(
-            "强化合金板模组拥有双倍效果",
-            "(只需5个即可不消耗耐久)"
+            "Plate mods count twice."
         );
 
     public static final MaterialTrait CORE_REINFORCED_ALLOY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("防凋零")
+        .setTraitName("Witherproof")
         .setLore(
-            "免疫凋零效果"
+            "Immune to the wither effect."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksReinforced);
 
     public static final MaterialTrait CORE_STRING_BINDER = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("又不是不能用")
+        .setTraitName("Works")
         .setLore(
-            "没有任何效果",
-            "能用就行了"
+            "No special effects."
         );
 
     public static final MaterialTrait CORE_STRING_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("又不是不能用")
+        .setTraitName("Works")
         .setLore(
-            "没有任何效果",
-            "能用就行了"
+            "No special effects but makes armour quickly."
         );
 
     public static final MaterialTrait CORE_VINE_BINDER = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("生长")
+        .setTraitName("Growth")
         .setLore(
-            "在白天缓慢修复工具"
+            "Slowly repairs the tool during the day.",
+            "Stacks with mods. Must be in hand"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::binderVine);
 
     public static final MaterialTrait CORE_VINE_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("生长")
+        .setTraitName("Growth")
         .setLore(
-            "在白天缓慢修复工具"
+            "Slowly repairs during the day."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::gambesonVine);
 
@@ -992,120 +929,120 @@ public final class Traits {
     public static final MaterialTrait CORE_CRIMSON_ROOT_BINDER = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("腐烂")
+        .setTraitName("Decay")
         .setLore(
-            "在夜间缓慢修复工具"
+            "Slowly repairs the tool at night.",
+            "Stacks with mods. Must be in hand"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::binderCrimsonRoot);
 
     public static final MaterialTrait CORE_CRIMSON_ROOT_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("腐烂")
+        .setTraitName("Decay")
         .setLore(
-            "在夜间缓慢修复工具"
+            "Slowly repairs during night."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::gambesonCrimsonRoots);
 
     public static final MaterialTrait CORE_WARPED_ROOT_BINDER = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("恢复")
+        .setTraitName("Refreshing")
         .setLore(
-            "缓慢治疗玩家"
+            "Slowly heals the holder."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::bindWarpedRoot);
 
     public static final MaterialTrait CORE_WARPED_ROOT_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("恢复")
+        .setTraitName("Refreshing")
         .setLore(
-            "缓慢治疗玩家"
+            "Slowly heals the equipping player."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::gambesonWarpedRoots);
 
     public static final MaterialTrait CORE_WEEPING_VINE_BINDER = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("不祥之兆")
+        .setTraitName("Doom")
         .setLore(
-            "我感觉很不好...",
-            "(获得不祥之兆效果)"
+            "I get a bad feeling from this..."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::binderWeepingVine);
 
     public static final MaterialTrait CORE_WEEPING_VINE_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("不祥之兆")
+        .setTraitName("Doom")
         .setLore(
-            "我感觉很不好...",
-            "(获得不祥之兆效果)"
+            "Gives you bad omen. Hide your villagers!"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::gambesonWeepingVines);
 
     public static final MaterialTrait CORE_TWISTING_VINE_BINDER = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("吸引")
+        .setTraitName("Attraction")
         .setLore(
-            "自动吸收周围5格内的掉落物"
+            "All drops are drawn to you within a",
+            "5 block range."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::binderTwistingVine);
 
     public static final MaterialTrait CORE_TWISTING_VINE_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("吸引")
+        .setTraitName("Attraction")
         .setLore(
-            "自动吸收周围5格内的掉落物"
+            "Nearby drops (5x5 area) are drawn to you."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::gambesonTwistingWines);
 
     public static final MaterialTrait CORE_SLIME_BINDER = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("弹性")
+        .setTraitName("Bouncy")
         .setLore(
-            "-50% 摔落伤害"
+            "Fall damage is halved."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::bindSlime);
 
     public static final MaterialTrait CORE_SLIME_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("弹性")
+        .setTraitName("Bouncy")
         .setLore(
-            "-25% 摔落伤害"
+            "Fall damage -25%"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::gambesonSlime);
 
     public static final MaterialTrait CORE_SILICON_BINDER = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("缓慢学习")
+        .setTraitName("Slow Learner")
         .setLore(
-            "破坏方块时",
-            "+(5 * 工具等级)% 工具经验获取"
+            "Tool exp gain when breaking blocks is",
+            "increased by (Tool Level x 5%)"
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::bindSilicon);
 
     public static final MaterialTrait CORE_SILICON_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("缓慢学习")
+        .setTraitName("Slow Learner")
         .setLore(
-            "+(5 * 防具等级)% 防具经验获取"
+            "Armour exp gain = (Level * 5%)"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::gambesonSilicon);
 
     public static final MaterialTrait CORE_LEATHER_BINDER = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("厚皮革")
+        .setTraitName("Thick")
         .setLore(
-            "+50% 工具经验获取"
+            "Tool exp gain + 50%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::binderLeather)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::binderLeather);
@@ -1113,77 +1050,73 @@ public final class Traits {
     public static final MaterialTrait CORE_LEATHER_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("厚皮革")
+        .setTraitName("Thick")
         .setLore(
-            "+10% 防具经验获取"
+            "Armour exp gain + 10%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::gambesonLeather);
 
     public static final MaterialTrait CORE_FERROSILICON_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("氢气")
+        .setTraitName("Hydrogen")
         .setLore(
-            "受到伤害时",
-            "获得飘浮效果"
+            "Float away from danger."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::headFerrosilicon);
 
     public static final MaterialTrait CORE_FERROSILICON_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("太阳能")
+        .setTraitName("Solar Powered")
         .setLore(
-            "在白天持续恢复耐久"
+            "Restores durability during the day time."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateFerrosilicon);
 
     public static final MaterialTrait CORE_FERROSILICON_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("魔童")
+        .setTraitName("Brightburn")
         .setLore(
-            "获得1层魔童效果",
-            "当拥有4层及以上的魔童效果时",
-            "击退周围5格内的所有的生物",
-            "(凋灵与末影龙除外)"
+            "Gives on stack of Burning Bright! With 4 ",
+            "stacks, hostile mobs are repelled (not bosses)."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::brightBurn);
 
     public static final MaterialTrait CORE_REDSTONE_ALLOY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("电棍")
+        .setTraitName("Lightning Rod")
         .setLore(
-            "有几率在命中生物时召唤闪电"
+            "A chance to strike hit mobs with lightning."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodRedstoneAlloy);
 
     public static final MaterialTrait CORE_REDSTONE_ALLOY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("充能")
+        .setTraitName("Powered On")
         .setLore(
-            "在 5x2x5 范围内随机充能方块",
-            "(激活红石信号)"
+            "Randomly powers a block within a 5x2x5 range."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateRedstoneAlloy);
 
     public static final MaterialTrait CORE_REDSTONE_ALLOY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("谁还要压力板?")
+        .setTraitName("Who needs pressure plates?")
         .setLore(
-            "你脚下的方块是充能的"
+            "The block you stand on is powered."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksRedstoneAlloy);
 
     public static final MaterialTrait CORE_BOOMERITE_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("梯子模拟器™")
+        .setTraitName("Ladder Simulator™")
         .setLore(
-            "右键点击时生成梯子"
+            "Spawns ladders on right click."
         )
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::headBoomerite);
 
@@ -1192,35 +1125,34 @@ public final class Traits {
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
         .setTraitName("Go Boomer")
         .setLore(
-            "警告: 即将发生爆炸"
+            "Warning... things will go boom..."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateBoomerite);
 
     public static final MaterialTrait CORE_SEFIRITE_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("庆祝")
+        .setTraitName("Celebrate")
         .setLore(
-            "是时候庆祝一下Sefi的生日了"
+            "Time to celebrate"
         )
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::headSefirite);
 
     public static final MaterialTrait CORE_CRINGLEIUM_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("庆祝节日")
+        .setTraitName("Feeling Festive")
         .setLore(
-            "一起来庆祝圣诞节吧!"
+            "Get that festive feeling!"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksCringleium);
 
     public static final MaterialTrait CORE_LOVE_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("这是你要的一切")
+        .setTraitName("It's all you need")
         .setLore(
-            "你被关爱了",
-            "(获得生命回复效果)"
+            "You are loved"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksLove);
 
@@ -1237,21 +1169,21 @@ public final class Traits {
     public static final MaterialTrait CORE_SMITHIUM_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("坚毅")
+        .setTraitName("Hardy")
         .setLore(
-            "有 50% 几率不消耗耐久。"
+            "50% chance to ignore durability loss."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headSmithium);
 
     public static final MaterialTrait CORE_SMITHIUM_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("勤勉")
+        .setTraitName("Industrious")
         .setLore(
-            "Shift + 右键点击来激活急速爆裂效果，持续30秒。",
-            "急速爆裂效果生效期间，",
-            "每破坏一个方块有 [50 ÷ 急迫等级]% 几率",
-            "增加1级急迫效果，最高为急迫 10。冷却时间5分钟。"
+            "Shift + Right click to activate Haste Burst for 30 seconds.",
+            "When Haste Burst is active, every block broken has",
+            "a [50 ÷ Haste Level]% chance to apply a stack of haste.",
+            "Hardcaps at Haste 10. Has a 5 min cooldown."
         )
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::rodSmithium)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::rodSmithium);
@@ -1259,28 +1191,28 @@ public final class Traits {
     public static final MaterialTrait CORE_SMITHIUM_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("抗热")
+        .setTraitName("Heat Resistance")
         .setLore(
-            "有 25% 几率无视火焰/岩浆伤害。"
+            "25% chance to ignore fire/heat damage."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::platesSmithium);
 
     public static final MaterialTrait CORE_SMITHIUM_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("工匠技术")
+        .setTraitName("Craftsmanship")
         .setLore(
-            "有 25% 几率返还维修花费。"
+            "25% chance to have repair costs refunded!"
         );
 
     public static final MaterialTrait CORE_ANNIVERSARIUM_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.CORE_NOTE)
-        .setTraitName("粘液科技10周年!")
+        .setTraitName("10 Years of (Slime)fun!")
         .setLore(
-            "庆祝粘液科技10周年!",
+            "10 Years of (Slime)fun!",
             "",
-            "需要全套护甲才能生效."
+            "Requires all four armor pieces."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateAnniversary);
 
@@ -1288,800 +1220,748 @@ public final class Traits {
 
     // region Infinity Expansion
 
-    public static final MaterialTrait INFINITY_IE_VOID_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_VOID_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("虚空矿工")
+        .setTraitName("Void Miner")
         .setLore(
-            "在挖掘时有几率掉落随机的不稀有矿产"
+            "Randomly generates ores while mining/digging."
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headVoid);
 
-    public static final MaterialTrait INFINITY_IE_VOID_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_VOID_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("虚空恐惧")
+        .setTraitName("Fear the Void")
         .setLore(
-            "+150% 输出伤害",
-            "在末地时:",
-            "+250% 输出伤害"
+            "Damage +150%. 250% in the End."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodVoid);
 
-    public static final MaterialTrait INFINITY_IE_VOID_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_VOID_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("虚空行者")
+        .setTraitName("Planewalker")
         .setLore(
-            "虚空不再是你的敌人",
-            "(落入虚空时自动传送至当前位置向上200格的位置)"
+            "The void is no longer your enemy"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateVoid);
 
-    public static final MaterialTrait INFINITY_IE_VOID_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_VOID_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("末地领主")
+        .setTraitName("The End")
         .setLore(
-            "-10% 来自末影龙,末影人,潜影贝的伤害"
+            "Reduce damage from the Dragon, Endermen and",
+            "Shulkers by 10%"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksVoid);
 
-    public static final MaterialTrait INFINITY_IE_MAGSTEEL_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGSTEEL_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("真的是不锈钢")
+        .setTraitName("Really Stainless")
         .setLore(
-            "很像不锈钢,但真的是可以抵挡鲜血",
-            "(更炫酷的视觉效果)"
+            "Like Stainless, but.. REALLY."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headMagSteel);
 
-    public static final MaterialTrait INFINITY_IE_MAGSTEEL_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGSTEEL_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("燃烧")
+        .setTraitName("Flammable")
         .setLore(
-            "有(工具等级 x 5)%的几率",
-            "让敌人着火"
+            "Has a (Tool level x 5)% chance to",
+            "set your enemies ablaze."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headMagnesium);
 
-    public static final MaterialTrait INFINITY_IE_MAGSTEEL_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGSTEEL_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("暗淡")
+        .setTraitName("Tarnished")
         .setLore(
-            "-20% 输出伤害",
-            "+20% 防具经验获取"
+            "Outgoing damage reduced by 25%. Armour Exp +20%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::linksCopper);
 
-    public static final MaterialTrait INFINITY_IE_MAGSTEEL_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGSTEEL_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("防御")
+        .setTraitName("Defender")
         .setLore(
-            "受到伤害时,有5%的几率",
-            "免疫伤害并获得伤害吸收效果"
+            "5% chance, when hit, to ignore damage",
+            "and gain absorption."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksMagSteel);
 
-    public static final MaterialTrait INFINITY_IE_TITANIUM_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_TITANIUM_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("双倍强化")
+        .setTraitName("Reinforced")
         .setLore(
-            "强化合金板模组拥有双倍效果",
-            "(只需5个即可不消耗耐久)"
+            "Any Plate mod on the tool is counted twice."
         );
 
-    public static final MaterialTrait INFINITY_IE_TITANIUM_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_TITANIUM_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("耐用")
+        .setTraitName("Durable")
         .setLore(
-            "工具损坏时依然可用,但:",
-            "-50% 输出伤害",
-            "获得挖掘疲劳效果",
-            "无法获得工具经验"
+            "Ignores being broken but damage 50%,",
+            "mining will be slower and 0 exp."
         );
 
-    public static final MaterialTrait INFINITY_IE_TITANIUM_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_TITANIUM_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("地精")
+        .setTraitName("Dwarven Skills")
         .setLore(
-            "在挖矿时有几率找到不稀有的物品",
-            "该几率可以叠加"
+            "Chance to find rare artifacts while mining."
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::linksHardened);
 
-    public static final MaterialTrait INFINITY_IE_TITANIUM_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_TITANIUM_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("防火")
+        .setTraitName("Heat Resistant")
         .setLore(
-            "免疫来自火焰、岩浆与岩浆块的伤害"
+            "Immune to fire and lava."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksTitanium);
 
-    public static final MaterialTrait INFINITY_IE_IRON_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_IRON_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("稳定 II")
+        .setTraitName("Stability II")
         .setLore(
-            "还是没有特性"
+            "Still does Nothing"
         );
 
-    public static final MaterialTrait INFINITY_IE_IRON_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_IRON_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("锋利 1 II")
+        .setTraitName("Sharp 1 II")
         .setLore(
-            "获得力量II效果 (可叠加)",
-            "(不要在意这糟糕的名字)"
+            "What a bad naming convention. +Damage"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodSingIron);
 
-    public static final MaterialTrait INFINITY_IE_IRON_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_IRON_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("坚固 II")
+        .setTraitName("Steadfast II")
         .setLore(
-            "爆炸将治疗你",
-            "而不会造成伤害"
+            "Ignore all explosions"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSingIron);
 
-    public static final MaterialTrait INFINITY_IE_IRON_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_IRON_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("腐蚀 II")
+        .setTraitName("Rusty II")
         .setLore(
-            "-10% 输出伤害",
-            "+10% 玩家经验获取"
+            "Armour durability loss +10%. Player Exp gain +20%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::linksSingIron);
 
-    public static final MaterialTrait INFINITY_IE_GOLD_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_GOLD_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("金色面纱 II")
+        .setTraitName("Golden Veil II")
         .setLore(
-            "获得隐身效果",
-            "",
-            "应用在武器上时: ",
-            "+50% 输出伤害"
+            "Makes the player invisible. If used on",
+            "a weapon, +50% damage."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::headSingGold)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headSingGold);
 
-    public static final MaterialTrait INFINITY_IE_GOLD_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_GOLD_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("闪闪发光 II")
+        .setTraitName("All That Glitters II")
         .setLore(
-            "获得彩虹发光效果"
+            "Makes you shiny AND rainbow...y"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodSingGold);
 
-    public static final MaterialTrait INFINITY_IE_GOLD_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_GOLD_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("繁荣 II")
+        .setTraitName("Prosperous II")
         .setLore(
-            "在受到伤害时",
-            "有1%几率掉落1-4个金粒"
+            "1% chance to drop 1-4 gold nuggets when hit"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSingGold);
 
-    public static final MaterialTrait INFINITY_IE_GOLD_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_GOLD_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("来个交易 II")
+        .setTraitName("Barter II")
         .setLore(
-            "猪灵会被你深深地吸引",
-            "(周围5格内的猪灵不会攻击你)"
+            "Piglins REALLY like your armour"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksSingGold);
 
-    public static final MaterialTrait INFINITY_IE_COPPER_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_COPPER_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("这是个脑力活 II")
+        .setTraitName("Brains, Not Brawn II")
         .setLore(
-            "+200% 工具经验获取",
-            "-50% 输出伤害"
+            "Tool exp +200%, Damage 50%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headSingCopper)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headSingCopper);
 
-    public static final MaterialTrait INFINITY_IE_COPPER_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_COPPER_SINGULARITY_ROD = new MaterialTrait()
         // Special case, handled in Experience.java
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("经验传导 II")
+        .setTraitName("Conductive II")
         .setLore(
-            "所有工具经验转化为玩家经验",
-            "并获得额外50%的加成"
+            "All tool exp is converted to player exp",
+            "with a 50% bonus."
         );
 
-    public static final MaterialTrait INFINITY_IE_COPPER_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_COPPER_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("新手 II")
+        .setTraitName("Beginner II")
         .setLore(
-            "+40% 防具经验获取",
-            "+50% 承受伤害"
+            "Damage Taken +50%. Armour Exp +40%"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSingCopper)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::plateSingCopper);
 
-    public static final MaterialTrait INFINITY_IE_COPPER_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_COPPER_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("暗淡 II")
+        .setTraitName("Tarnished II")
         .setLore(
-            "-20% 输出伤害",
-            "+40% 防具经验获取"
+            "Outgoing damage reduced by 25%. Armour Exp +40%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::linksSingCopper);
 
-    public static final MaterialTrait INFINITY_IE_LEAD_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_LEAD_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("剧毒 II")
+        .setTraitName("Poisonous II")
         .setLore(
-            "命中时有50%的几率附加中毒II效果"
+            "Poisons more frequently and for longer."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headSingLead);
 
-    public static final MaterialTrait INFINITY_IE_LEAD_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_LEAD_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("蚂蟥 II")
+        .setTraitName("Leech II")
         .setLore(
-            "获得额外血量",
-            "(获得生命提升II效果)"
+            "Bonus health, but drains your energy."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodSingLead);
 
-    public static final MaterialTrait INFINITY_IE_LEAD_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_LEAD_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("生病了 II")
+        .setTraitName("Sickly II")
         .setLore(
-            "铅制防具真的不是个好主意"
+            "Lead armour is a VERY BAD idea"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateSingLead);
 
-    public static final MaterialTrait INFINITY_IE_LEAD_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_LEAD_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("生病了 II")
+        .setTraitName("Sickly II")
         .setLore(
-            "铅制防具真的不是个好主意"
+            "Lead armour is a VERY BAD idea"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksSingLead);
 
-    public static final MaterialTrait INFINITY_IE_SILVER_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_SILVER_SINGULARITY_HEAD = new MaterialTrait()
         // Special Case, handled in Experience.java
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("附魔 II")
+        .setTraitName("Enchanting II")
         .setLore(
-            "-50% 工具经验获取",
-            "工具升级时获得1-3个随机附魔",
-            "附魔可能并不适用于该工具"
+            "Tool exp gain is halved. Tools add 1-3",
+            "randomly selected enchants when leveling",
+            "up. These enchants may not be useful!"
         );
 
-    public static final MaterialTrait INFINITY_IE_SILVER_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_SILVER_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("轻触 II")
+        .setTraitName("Soft Touch II")
         .setLore(
-            "你感觉更加轻松了",
-            "(免疫摔落伤害)"
+            "You feel much lighter."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::rodSingSilver);
 
-    public static final MaterialTrait INFINITY_IE_SILVER_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_SILVER_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("导电 II")
+        .setTraitName("Conductivity II")
         .setLore(
-            "被闪电击中时可获得治疗",
-            "并在周围生成闪电风暴"
+            "Chance to summon a tempest when hit.",
+            "Lightning damage heals you."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSingSilver);
 
-    public static final MaterialTrait INFINITY_IE_SILVER_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_SILVER_SINGULARITY_LINKS = new MaterialTrait()
         // Special Case, handled in Experience.java
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("附魔 II")
+        .setTraitName("Enchanting II")
         .setLore(
-            "防具升级时获得1-3个随机附魔",
-            "附魔可能并不适用于该防具"
+            "Gains 1-3 random enchantments everytime this",
+            "piece of armour levels up. May not be useful."
         );
 
-    public static final MaterialTrait INFINITY_IE_ALUMINUM_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ALUMINUM_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("再生资源 II")
+        .setTraitName("Recyclable II")
         .setLore(
-            "使用时有33%的几率恢复耐久"
+            "Chance to restore durability on hit/block break"
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headSingAluminum);
 
-    public static final MaterialTrait INFINITY_IE_ALUMINUM_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ALUMINUM_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("柔韧 II")
+        .setTraitName("Soft II")
         .setLore(
-            "+100% 耐久消耗",
-            "+100% 工具经验获取"
+            "Durability loss +100%, tool EXP +100%."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::rodSingAluminum)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::rodSingAluminum)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodSingAluminum);
 
-    public static final MaterialTrait INFINITY_IE_ALUMINUM_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ALUMINUM_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("快跑 II")
+        .setTraitName("Foil II")
         .setLore(
-            "+50% 承受伤害",
-            "获得速度II效果"
+            "Damage Taken +50%. Speed + 2"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateSingAluminium)
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSingAluminium);
 
-    public static final MaterialTrait INFINITY_IE_ALUMINUM_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ALUMINUM_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("快速修复 II")
+        .setTraitName("Easily Shaped II")
         .setLore(
-            "只需要1个任意材质的修复工具即可完全修复"
+            "Repairs only need a single kit of ANY metal"
         );
 
-    public static final MaterialTrait INFINITY_IE_TIN_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_TIN_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("幸运 II")
+        .setTraitName("Malleable II")
         .setLore(
-            "-50% 输出伤害",
-            "获得幸运II效果",
-            "获得速度II效果"
+            "Deal 50% less damage but gain lots of",
+            "Luck and Speed."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headSingTin)
         .addConsumer(TraitEventType.TICK, TickEvents::headSingTin);
 
-    public static final MaterialTrait INFINITY_IE_TIN_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_TIN_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("罐头 II")
+        .setTraitName("Can II")
         .setLore(
-            "饥饿度不会下降"
+            "No Hunger Loss"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodSingTin);
 
-    public static final MaterialTrait INFINITY_IE_TIN_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_TIN_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("抗毒 II")
+        .setTraitName("Non-Corrosive II")
         .setLore(
-            "免疫中毒、饥饿、虚弱效果",
-            "中毒效果会治疗你"
+            "Poison heals and immune to hunger and weakness."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateSingTin);
 
-    public static final MaterialTrait INFINITY_IE_TIN_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_TIN_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("承伤 II")
+        .setTraitName("Boost II")
         .setLore(
-            "当受到伤害时,获得伤害吸收II效果"
+            "When taking heavy damage, gain lots of absorption"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksSingTin);
 
-    public static final MaterialTrait INFINITY_IE_ZINC_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ZINC_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("海豚的恩惠 II")
+        .setTraitName("Graceful II")
         .setLore(
-            "激活海豚的力量!更多的力量!",
-            "(获得海豚的恩惠II效果)"
+            "DOLPHIN POWERS, ACTIVATE... MORE!"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::headSingZinc);
 
-    public static final MaterialTrait INFINITY_IE_ZINC_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ZINC_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("飘浮 II")
+        .setTraitName("Super Lightweight II")
         .setLore(
-            "蹲下时让你变得比空气还轻",
-            "(获得飘浮II效果)"
+            "Makes you lighter than air when sneaking."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodSingZinc);
 
-    public static final MaterialTrait INFINITY_IE_ZINC_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ZINC_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("偷袭 II")
+        .setTraitName("Sneaky II")
         .setLore(
-            "当目标看向别处时,",
-            "+100% 对其造成的伤害",
-            "(看向别处的判定范围更广)"
+            "Damage doubled if target is facing away.",
+            "Large tolerence"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::plateSingZinc);
 
-    public static final MaterialTrait INFINITY_IE_ZINC_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ZINC_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("针灸 II")
+        .setTraitName("Acupuncture II")
         .setLore(
-            "免疫来自仙人掌的伤害",
-            "来自仙人掌的伤害可以治疗你"
+            "Cactus pricks heal you."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksSingZinc);
 
-    public static final MaterialTrait INFINITY_IE_MAGNESIUM_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGNESIUM_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("燃烧 II")
+        .setTraitName("Flammable II")
         .setLore(
-            "有(工具等级 x 10)%的几率",
-            "让敌人着火更长时间"
+            "Has a (Tool level x 10)% chance to",
+            "set your enemies ablaze for a longer time."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headSingMagnesium);
 
-    public static final MaterialTrait INFINITY_IE_MAGNESIUM_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGNESIUM_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("磁铁 II")
+        .setTraitName("Magnetesium II")
         .setLore(
-            "随机捡起附近10格范围内的物品"
+            "Random items are drawn to you from",
+            "within a 10 block range"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodSingMagnesium);
 
-    public static final MaterialTrait INFINITY_IE_MAGNESIUM_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGNESIUM_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("快溜 II")
+        .setTraitName("Light II")
         .setLore(
-            "-50% 输出伤害",
-            "获得速度II效果"
+            "Damage dealt -50%. Speed + 2"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateSingMagnesium)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::plateSingMagnesium);
 
-    public static final MaterialTrait INFINITY_IE_MAGNESIUM_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGNESIUM_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("镁地™夜视 II")
+        .setTraitName("MagneSight™ II")
         .setLore(
-            "获得夜视效果",
-            "并标记出周围10格内所有生物"
+            "Gain night vision and highlight all mobs"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksSingMagnesium);
 
-    public static final MaterialTrait INFINITY_IE_MYTHRIL_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MYTHRIL_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("精灵疾驰")
+        .setTraitName("Elven Speed")
         .setLore(
-            "+50% 耐久消耗",
-            "获得急迫II效果",
-            "获得速度效果"
+            "Haste 2, Speed 1. Durability loss +50%"
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headMythril)
         .addConsumer(TraitEventType.TICK, TickEvents::headMythril);
 
-    public static final MaterialTrait INFINITY_IE_MYTHRIL_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MYTHRIL_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("贡多林刺针")
+        .setTraitName("Sting of Gondolin")
         .setLore(
-            "击退附近所有的敌对生物"
+            "All nearby, hostile, mobs are repelled."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodMythril);
 
-    public static final MaterialTrait INFINITY_IE_MYTHRIL_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MYTHRIL_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("魔童")
+        .setTraitName("Brightburn")
         .setLore(
-            "获得1层魔童效果",
-            "当拥有4层及以上的魔童效果时",
-            "击退周围5格内的所有的敌对生物",
-            "(凋灵与末影龙除外)"
+            "Gives on stack of Burning Bright! With 4",
+            "stacks, hostile mobs are repelled (not bosses)."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::brightBurn);
 
-    public static final MaterialTrait INFINITY_IE_MYTHRIL_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MYTHRIL_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("野性的呼唤")
+        .setTraitName("Call of the Wild")
         .setLore(
-            "当受到伤害时",
-            "有几率召唤一只狼来帮助你"
+            "When hit, you sometimes summon a wolf to your aid"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksMythril);
 
-    public static final MaterialTrait INFINITY_IE_ADAMANTITE_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ADAMANTITE_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("神秘")
+        .setTraitName("Mystic")
         .setLore(
-            "挖矿时: ",
-            "+100% 玩家经验获取",
-            "",
-            "击杀生物时: ",
-            "+50% 玩家经验获取"
+            "Player Exp + 100% (Mining) +50% (Mobs)"
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headAdamantite)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headAdamantite);
 
-    public static final MaterialTrait INFINITY_IE_ADAMANTITE_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ADAMANTITE_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("坚硬")
+        .setTraitName("Adamant")
         .setLore(
-            "免疫爆炸伤害"
+            "Become immune to all explosions"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::rodAdamantite);
 
-    public static final MaterialTrait INFINITY_IE_ADAMANTITE_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ADAMANTITE_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("射歪了")
+        .setTraitName("Deflective")
         .setLore(
-            "-25% 来自弹射物的伤害"
+            "Projectile Damage -25%"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateAdamantite);
 
-    public static final MaterialTrait INFINITY_IE_ADAMANTITE_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_ADAMANTITE_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("有经验的")
+        .setTraitName("Experienced")
         .setLore(
-            "+10% 工具经验获取",
-            "+10% 玩家经验获取"
+            "All tool and armour exp +10%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::linksAdamantite)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::linksAdamantite);
 
-    public static final MaterialTrait INFINITY_IE_MAGNONIUM_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGNONIUM_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("宽宏大量")
+        .setTraitName("Magnanimous")
         .setLore(
-            "你真的太棒了",
-            "谢谢你"
+            "You're just far too kind"
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headMagnonium);
 
-    public static final MaterialTrait INFINITY_IE_MAGNONIUM_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGNONIUM_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("炽热")
+        .setTraitName("Flaming Hot")
         .setLore(
-            "可熔炼掉落物"
+            "Smelts things when possible."
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headCorbronze);
 
-    public static final MaterialTrait INFINITY_IE_MAGNONIUM_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGNONIUM_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("逃脱")
+        .setTraitName("Escape")
         .setLore(
-            "受到伤害时随机传送到附近",
-            "(CD: 10秒)"
+            "When hit, teleport away randomly (CD: 10s)."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksAluBrass);
 
-    public static final MaterialTrait INFINITY_IE_MAGNONIUM_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGNONIUM_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("有氧")
+        .setTraitName("Oxygenated")
         .setLore(
-            "谁需要它呢?",
-            "(免疫溺水伤害)"
+            "Who needs it!?"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksMagnonium);
 
-    public static final MaterialTrait INFINITY_IE_FORTUNE_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_FORTUNE_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("幸运")
+        .setTraitName("Fortunate")
         .setLore(
-            "获得双倍掉落物",
-            "可与青金石模组叠加"
+            "200% drops from fortune. Stacks",
+            "with Lapis modifiers."
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headFortune);
 
-    public static final MaterialTrait INFINITY_IE_FORTUNE_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_FORTUNE_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("商人面纱")
+        .setTraitName("Merchant's Veil")
         .setLore(
-            "没有副作用的隐身",
-            "(获得隐身III效果)"
+            "Invisibility with none of the drawbacks!"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodFortune);
 
-    public static final MaterialTrait INFINITY_IE_FORTUNE_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_FORTUNE_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("多么幸运")
+        .setTraitName("How Fortunate")
         .setLore(
-            "受到1点以上(初始)伤害时",
-            "有0.5%的几率获得一件礼物"
+            "0.5% chance to get a gift when hit."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateFortune);
 
-    public static final MaterialTrait INFINITY_IE_FORTUNE_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_FORTUNE_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("鲜花")
+        .setTraitName("Beautiful")
         .setLore(
-            "在行走时有几率让周围的草地上开花"
+            "Plants flowers as you walk."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateAluBronze);
 
-    public static final MaterialTrait INFINITY_IE_MAGIC_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGIC_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("魔术戏法")
+        .setTraitName("Tricks")
         .setLore(
-            "对周围所有生物随机释放魔术戏法,包括:",
-            "- 击退",
-            "- 中毒",
-            "- 随机传送",
-            "- 着火",
-            "- 速度"
+            "Plays nasty tricks on nearby things."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::headMagic);
 
-    public static final MaterialTrait INFINITY_IE_MAGIC_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGIC_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("揭露秘密")
+        .setTraitName("Secrets Revealed")
         .setLore(
-            "标记出周围10格内的所有的生物(也许不一定是)"
+            "Reveals all nearby living (or not!) things."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodMagic);
 
-    public static final MaterialTrait INFINITY_IE_MAGIC_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGIC_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("巫师袍")
+        .setTraitName("Wizard Robes")
         .setLore(
-            "造成伤害时",
-            "有几率释放魔法"
+            "Chance, when attacking, to create MAGIC"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::plateMagic);
 
-    public static final MaterialTrait INFINITY_IE_MAGIC_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_MAGIC_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("魔法薄荷")
+        .setTraitName("Magical Mint")
         .setLore(
-            "免疫龙息伤害"
+            "It may still be foul, but the Dragon's",
+            "breath will not hurt you."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksMagic);
 
-    public static final MaterialTrait INFINITY_IE_EARTH_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_EARTH_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("撼地者")
+        .setTraitName("Earth Shaker")
         .setLore(
-            "击退并禁锢命中的生物"
+            "Knocks back hit mobs and stuns them",
+            "when they land."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headEarth);
 
-    public static final MaterialTrait INFINITY_IE_EARTH_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_EARTH_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("粉碎机")
+        .setTraitName("Grinder")
         .setLore(
-            "破坏方块时的掉落物",
-            "就像经过了粉碎机一样"
+            "Breaking blocks act as if they have",
+            "gone through the grinder."
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::rodEarth);
 
-    public static final MaterialTrait INFINITY_IE_EARTH_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_EARTH_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("岩浆行者")
+        .setTraitName("Lava Walker")
         .setLore(
-            "脚下的岩浆变为岩浆块"
+            "Lava turns into magma blocks beneath your feet."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateEarth);
 
-    public static final MaterialTrait INFINITY_IE_EARTH_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_EARTH_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("自然法则")
+        .setTraitName("It's only natural")
         .setLore(
-            "右键点击时,喂食周围的两只动物",
-            "(CD: 2分钟)",
-            "无论是否喂食成功,该效果都会进入冷却"
+            "Feeds two nearby animals on right click. (CD: 2m)",
+            "Cooldown fires regardless of success."
         )
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::linksEarth);
 
-    public static final MaterialTrait INFINITY_IE_METAL_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_METAL_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("干净利落")
+        .setTraitName("Clean Cut")
         .setLore(
-            "+100% 输出伤害",
-            "获得急迫II效果"
+            "Damage +100%. Haste 2"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::headMetal)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headMetal);
 
-    public static final MaterialTrait INFINITY_IE_METAL_SINGULARITY_ROD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_METAL_SINGULARITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("经验导体")
+        .setTraitName("Conductor")
         .setLore(
-            "所有玩家经验以10:1的比例",
-            "转化为工具经验"
+            "All player exp is converted to tool",
+            "exp at a 10 : 1 ratio."
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::rodMetal)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodMetal);
 
-    public static final MaterialTrait INFINITY_IE_METAL_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_METAL_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("圆桌骑士")
+        .setTraitName("KOTR")
         .setLore(
-            "受到伤害时有几率",
-            "在周围生成圆桌骑士",
-            "(好吧,是铁傀儡)"
+            "Chance, when hit, to summon a Knight",
+            "of the Round. (It's a Golem ;))"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateMetal);
 
-    public static final MaterialTrait INFINITY_IE_METAL_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_METAL_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("闪光弹")
+        .setTraitName("Gleam")
         .setLore(
-            "受到伤害时,有几率",
-            "反弹伤害并使攻击者眩晕"
+            "Chance when hit to reflect damage and",
+            "dazzle attackers."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksMetal);
 
     public static final MaterialTrait INFINITY_INFINITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("无尽")
+        .setTraitName("Infinite")
         .setLore(
-            "这件工具获得了永生..."
+            "This tool will live on forever."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headInfinity);
 
     public static final MaterialTrait INFINITY_INFINITY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("概念性防御")
+        .setTraitName("Conceptual Defence")
         .setLore(
-            "-50% 承受伤害"
+            "All damage is halved (rounded up)."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::rodInfinity);
 
     public static final MaterialTrait INFINITY_INFINITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("无尽反应盔甲")
+        .setTraitName("Infinite Capacity")
         .setLore(
-            "每次承受伤害的10%会被存储",
-            "最多可存储10点伤害(5颗心)",
-            "右键点击对周围所有生物",
-            "释放存储的伤害"
+            "Everytime you take damage, 10% is stored",
+            "up to 5 hearts. Right click to release",
+            "the damage on nearby entities"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateInfinity)
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::plateInfinity);
@@ -2089,44 +1969,43 @@ public final class Traits {
     public static final MaterialTrait INFINITY_INFINITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("衔尾蛇")
+        .setTraitName("Oroborus")
         .setLore(
-            "有20%的几率反弹承受的伤害"
+            "20% chance to reflect damage taken."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksInfinity);
 
-    public static final MaterialTrait INFINITY_IE_INFINITY_SINGULARITY_HEAD = new MaterialTrait()
+    public static final MaterialTrait INFINITY_INFINITY_SINGULARITY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("断点")
+        .setTraitName("Breakpoint")
         .setLore(
-            "无法破坏",
-            "+200% 输出伤害",
-            "+200% 工具经验获取",
-            "可挖掘 3x3x3 区域"
+            "Unbreakable. +200% Damage.",
+            "+200% Tool Exp and 3x3 Mining."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headSingInfinity)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headSingInfinity)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headSingInfinity);
 
-    public static final MaterialTrait INFINITY_IE_INFINITY_SINGULARITY_PLATES = new MaterialTrait()
+    public static final MaterialTrait INFINITY_INFINITY_SINGULARITY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("无尽力量")
+        .setTraitName("Infinitly Powerful")
         .setLore(
-            "每承受2000点伤害(减伤计算前)",
-            "可以获得一个新的随机附魔",
-            "无等级上限"
+            "Every X points of damage taken (before",
+            "reductions) will unlock a new, random,",
+            "enchantment. No upper limits.",
+            "damage required will increase each time"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateSingInfinity);
 
-    public static final MaterialTrait INFINITY_IE_INFINITY_SINGULARITY_LINKS = new MaterialTrait()
+    public static final MaterialTrait INFINITY_INFINITY_SINGULARITY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
-        .setTraitName("无尽防御")
+        .setTraitName("Infinite Defence")
         .setLore(
-            "当装备全套包含无尽防御的防具时",
-            "所有承受的伤害均减少至1点"
+            "All damage taken set to 1 when 4 pieces",
+            "are equipped."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksSingInfinity);
 
@@ -2134,12 +2013,11 @@ public final class Traits {
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.INFINITY_EXPANSION_NOTE)
         .setSponsoredBy("Bunkky/ReasonFoundDecoy")
-        .setTraitName("龙之愤怒")
+        .setTraitName("Draconic Tantrum")
         .setLore(
-            "当被末影龙击中后,获得龙之愤怒效果,",
-            "每层增加10%对末影龙的伤害,持续15秒,无上限.",
-            "层数可叠加，2层为20%，3层为30%，以此类推",
-            "叠加层数后重置持续时间."
+            "When hit by the Ender Dragon, gain",
+            "bonus damage for 15 seconds.",
+            "Stacks additively. Stacks refresh duration."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::headReinforcedDraconium)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headReinforcedDraconium);
@@ -2151,42 +2029,37 @@ public final class Traits {
     public static final MaterialTrait LITE_RUBBER_BINDING = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("绝缘")
+        .setTraitName("Insulated")
         .setLore(
-            "免疫闪电伤害"
+            "Become immune to lightning."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::bindRubber);
 
     public static final MaterialTrait LITE_RUBBER_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("出汗")
+        .setTraitName("Sweaty")
         .setLore(
-            "橡胶护身软甲真的太热了!"
+            "A rubber lining is WAY too hot."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::gambesonRubber);
 
     public static final MaterialTrait LITE_REFINED_IRON_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("真的稳定")
+        .setTraitName("Really Stable")
         .setLore(
-            "真的没有特性",
-            "不过也许升级后会有呢?",
-            "",
-            "工具等级满10级后:",
-            "+(工具等级 * 10)% 输出伤害"
+            "Does nothing. Perhaps if you level it up?."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headRefinedIron);
 
     public static final MaterialTrait LITE_REFINED_IRON_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("不知礼，无以立也")
+        .setTraitName("Manners Maketh Man")
         .setLore(
-            "获得速度效果",
-            "+50% 输出伤害",
-            "你的战斗过程将变得炫酷"
+            "Speed 1, Damage + 50%. Your fights look",
+            "super cool."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodRefinedIron)
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::rodRefinedIron)
@@ -2195,45 +2068,40 @@ public final class Traits {
     public static final MaterialTrait LITE_REFINED_IRON_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("王牌特工")
+        .setTraitName("Kingsman")
         .setLore(
-            "需要满足以下全部条件才能生效:",
-            "- 装备全套有王牌特工特性的盔甲",
-            "- 熟知礼仪 (不知礼，无以立也)",
-            "",
-            "右键点击时召唤毁灭阵",
-            "对阵中的所有生物造成伤害",
-            "(CD: 20分钟)"
+            "On right click, summons a colorful cavalcade",
+            "of pure destruction.",
+            "Does nothing if you don't have manners.",
+            "Requires 4 pieces with Kingsman."
         )
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::plateRefinedIron);
 
     public static final MaterialTrait LITE_REFINED_IRON_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("看不到我")
+        .setTraitName("Narrowing")
         .setLore(
-            "攻击者获得失明效果"
+            "Attackers are blinded."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksRefinedIron);
 
     public static final MaterialTrait LITE_MIXED_METAL_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("合金")
+        .setTraitName("Mixed Metals")
         .setLore(
-            "随机获得其冶炼材料的特性",
-            "但效果减半",
-            "(随机获得速度,防火,幸运效果)"
+            "Has the effects of all it's ingredients but",
+            "their power is halved."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::headMixedMetal);
 
     public static final MaterialTrait LITE_MIXED_METAL_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("倒霉鬼")
+        .setTraitName("Stiff")
         .setLore(
-            "+20% 输出伤害",
-            "获得厄运III效果"
+            "Double damage. Unlucky!"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headBrass)
         .addConsumer(TraitEventType.TICK, TickEvents::headBrass);
@@ -2241,10 +2109,9 @@ public final class Traits {
     public static final MaterialTrait LITE_MIXED_METAL_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("有经验的")
+        .setTraitName("Experienced")
         .setLore(
-            "+10% 工具经验获取",
-            "+10% 玩家经验获取"
+            "All tool/armour exp + 10%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::linksAdamantite)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::linksAdamantite);
@@ -2252,30 +2119,29 @@ public final class Traits {
     public static final MaterialTrait LITE_MIXED_METAL_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("混乱")
+        .setTraitName("Mix it up!")
         .setLore(
-            "受到攻击时",
-            "有几率与攻击者互换位置"
+            "Mixes things up a bit when hit"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksMixedMetal);
 
     public static final MaterialTrait LITE_ADVANCED_ALLOY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("散射")
+        .setTraitName("Cleave")
         .setLore(
-            "攻击时对周围所有生物同时造成伤害",
-            "散射的伤害不会受到其他特性或模组的影响"
+            "Damage all nearby mobs when you attack.",
+            "Cleave damage does not trigger Tinker's effects."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headAdvancedAlloy);
 
     public static final MaterialTrait LITE_ADVANCED_ALLOY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("高负荷")
+        .setTraitName("Heavy Duty")
         .setLore(
-            "每损失50点耐久,会",
-            "消耗一块铁锭来恢复50点耐久"
+            "When durability gets low, it eats 1 iron",
+            "ingot from your inventory to restore some."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::rodAdvancedAlloy);
 
@@ -2283,70 +2149,63 @@ public final class Traits {
         // Event More Advanced (mod affector)
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("更加高级")
+        .setTraitName("Even More Advanced")
         .setLore(
-            "Advanced modifiers +1 for each piece.",
-            "(开发中的特性,暂不翻译)"
+            "Advanced modifiers +1 for each piece."
         );
 
     public static final MaterialTrait LITE_ADVANCED_ALLOY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("高温")
+        .setTraitName("Superhot")
         .setLore(
-            "有几率使周围实体着火"
+            "Chance to set nearby linving things on fire."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateCorBronze);
 
     public static final MaterialTrait LITE_MAG_THOR_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("耐热")
+        .setTraitName("Heat Resistant")
         .setLore(
-            "你可以在岩浆里游泳",
-            "(免疫火焰与岩浆伤害)"
+            "Lava is no longer your enemy."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::headMagThor);
 
     public static final MaterialTrait LITE_MAG_THOR_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("吸血鬼")
+        .setTraitName("Vampirism")
         .setLore(
-            "造成伤害时有33%的几率恢复1点血量",
-            "-50% 伤害 (日间)",
-            "+50% 伤害 (夜间)"
+            "Chance to heal by damage given.",
+            "Damage dealt varies by time of day."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headDamsteel);
 
     public static final MaterialTrait LITE_MAG_THOR_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("放射性盔甲板")
+        .setTraitName("Radioactive Plates")
         .setLore(
-            "受到伤害时",
-            "对攻击者施加中毒效果"
+            "Poisons enemies that attack you."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateMagThor);
 
     public static final MaterialTrait LITE_MAG_THOR_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("建筑狂怒")
+        .setTraitName("Building Rage")
         .setLore(
-            "有20%的几率在受到伤害时",
-            "获得速度效果",
-            "获得急迫效果"
+            "Chance, when hit, to gain Speed 1 and Haste 1"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksMagThor);
 
     public static final MaterialTrait LITE_CARBON_MESH_BINDING = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("敏捷")
+        .setTraitName("Nimble")
         .setLore(
-            "获得速度效果",
-            "-33% 承受伤害"
+            "Speed 1. Take 33% less damage"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::bindCarbonMesh)
         .addConsumer(TraitEventType.TICK, TickEvents::bindCarbonMesh);
@@ -2354,19 +2213,18 @@ public final class Traits {
     public static final MaterialTrait LITE_CARBON_MESH_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("碳纤维")
+        .setTraitName("Carbon Fibre")
         .setLore(
-            "获得速度效果"
+            "Speed + 1"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::gambesonCarbonMesh);
 
     public static final MaterialTrait LITE_SCRAP_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("可怕")
+        .setTraitName("Terrible")
         .setLore(
-            "+300% 耐久消耗",
-            "-100% 工具经验获取"
+            "+300% durability loss. 0% Exp Gain."
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::headScrap)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headScrap)
@@ -2375,10 +2233,10 @@ public final class Traits {
     public static final MaterialTrait LITE_SCRAP_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("这是个脑力活")
+        .setTraitName("Brains, Not Brawn.")
         .setLore(
-            "+100% 工具经验获取",
-            "-50% 输出伤害"
+            "Tool exp gain is doubled. Damage",
+            "dealt is halved."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headCopper)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headCopper);
@@ -2386,11 +2244,12 @@ public final class Traits {
     public static final MaterialTrait LITE_SCRAP_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("可悲")
+        .setTraitName("Pathetic")
         .setLore(
-            "警告: 不要穿上这件盔甲",
-            "会有坏事发生",
-            "+400% 玩家经验获取"
+            "Do not wear this armour.",
+            "VERY BAD THINGS MAY HAPPEN",
+            "YOU HAVE BEEN WARNED",
+            "Exp + 400%."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateScrap)
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::plateScrap);
@@ -2398,10 +2257,10 @@ public final class Traits {
     public static final MaterialTrait LITE_SCRAP_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("分崩离析")
+        .setTraitName("Falling Apart")
         .setLore(
-            "+200% 玩家经验获取",
-            "受到伤害时护甲有几率直接掉落"
+            "Exp + 200%. Chance for the armour to",
+            "just fall off!"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::linksScrap)
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksScrap);
@@ -2409,41 +2268,37 @@ public final class Traits {
     public static final MaterialTrait LITE_IRIDIUM_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("保护")
+        .setTraitName("Protective")
         .setLore(
-            "使你免于死亡",
-            "(CD: 20分钟)"
+            "Saves you from deaths. (CD 20m)"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::headIridium);
 
     public static final MaterialTrait LITE_IRIDIUM_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("别看我")
+        .setTraitName("Warp")
         .setLore(
-            "使目标看向你的朝向",
-            "(CD: 20秒)"
+            "Turns your opponent around. (CD: 20m)"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodIridium);
 
     public static final MaterialTrait LITE_IRIDIUM_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("不屈")
+        .setTraitName("Indomitable")
         .setLore(
-            "承受伤害的10%会被反弹至攻击者"
+            "10% of all damage is ignored and reflected."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateIridium);
 
     public static final MaterialTrait LITE_IRIDIUM_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.LITEXPANSION_NOTE)
-        .setTraitName("非常规力量")
+        .setTraitName("Unconventional Power")
         .setLore(
-            "承受的伤害会被转化为能源",
-            "并存储在盔甲中(伤害不会被抵消)",
-            "右键点击释放存储的能源",
-            "用于给物品栏中所有的物品充电"
+            "Any damage taken is remembered. Right",
+            "Click to charge inventory items."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksIridium)
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::linksIridium);
@@ -2455,50 +2310,48 @@ public final class Traits {
     public static final MaterialTrait SFW_SEGGANESSON_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("超载")
+        .setTraitName("Overcharge")
         .setLore(
-            "每次攻击的初始伤害会被存储",
-            "每10次攻击会释放所有已存储的伤害"
+            "Stores energy each time you hit a mob.",
+            "Every 10th attack releases this back."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headSegganesson);
 
     public static final MaterialTrait SFW_SEGGANESSON_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("失明速度")
+        .setTraitName("Blinding Speed")
         .setLore(
-            "获得速度V效果",
-            "获得失明效果"
+            "Gain insane speed but with a side effect."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::rodSegganesson);
 
     public static final MaterialTrait SFW_SEGGANESSON_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("引力")
+        .setTraitName("Gravity")
         .setLore(
-            "所有附近的实体",
-            "会被缓慢地拖向你"
+            "All nearby entities are slowly pulled",
+            "towards you"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateSegganesson);
 
     public static final MaterialTrait SFW_SEGGANESSON_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("灵魂虹吸")
+        .setTraitName("Soul Siphon")
         .setLore(
-            "每击杀一个敌对生物可收集1个灵魂",
-            "每100个灵魂 +1% 输出伤害"
+            "Stores the souls of killed, hostile, mobs.",
+            "Damage + 1% per 100 souls. Caps at 100%."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::linksSegganesson);
 
     public static final MaterialTrait SFW_SLIMESTEEL_BINDING = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_BINDING)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("弹性 II")
+        .setTraitName("Bouncy II")
         .setLore(
-            "-50% 摔落伤害",
-            "获得跳跃提升II效果"
+            "Fall damage halved with a jump boost."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::bindSlimesteel)
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::bindSlimesteel);
@@ -2506,42 +2359,39 @@ public final class Traits {
     public static final MaterialTrait SFW_SLIMESTEEL_GAMBESON = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_GAMBESON)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("月面弹跳")
+        .setTraitName("Moon Bounce")
         .setLore(
-            "该特性运用于靴子时: ",
-            "免疫摔落伤害"
+            "When on boots, fall damage is ignored.",
+            "You also get more bouncy."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::gambesonSlimeSteel);
 
     public static final MaterialTrait SFW_REINFORCED_SLIMESTEEL_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("强力粘液")
+        .setTraitName("Strong and Sticky")
         .setLore(
-            "当物品栏有空间时",
-            "掉落的方块将直接进入物品栏中"
+            "Dropped blocks go into your inventory",
+            "when possible to do so"
         )
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headReinforcedSlimesteel);
 
     public static final MaterialTrait SFW_REINFORCED_SLIMESTEEL_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("灵活")
+        .setTraitName("Flexibility")
         .setLore(
-            "仅在工具未损坏时有效",
-            "-50% 承受伤害",
-            "消耗与初始伤害数值相同的耐久"
+            "Incoming damage reduced and durability is lost",
+            "instead. Doesn't work while tool is broken."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::rodReinforcedSlimesteel);
 
     public static final MaterialTrait SFW_REINFORCED_SLIMESTEEL_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("刚性与柔性")
+        .setTraitName("Rigid Flexibility")
         .setLore(
-            "获得速度效果",
-            "获得跳跃提升效果",
-            "+10% 承受伤害"
+            "Speed and Jump + 1. Damage Taken + 10%"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateReinforcedSlimesteel)
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateReinforcedSlimesteel);
@@ -2549,38 +2399,37 @@ public final class Traits {
     public static final MaterialTrait SFW_REINFORCED_SLIMESTEEL_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("射偏了")
+        .setTraitName("Deflection")
         .setLore(
-            "有10%的几率免疫来自弹射物的伤害"
+            "10% chance to ignore projectile damage."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksReinforcedSlimesteel);
 
     public static final MaterialTrait SFW_OSMIUM_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("锤子")
+        .setTraitName("Heavy")
         .setLore(
-            "可挖掘 3x3x3 区域"
+            "Mines in a 3x3 Area"
         )
         .addConsumer(TraitEventType.DURABILITY, DurabilityEvents::explosive);
 
     public static final MaterialTrait SFW_OSMIUM_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("重型鞍座")
+        .setTraitName("Heavy Pommel")
         .setLore(
-            "命中的目标会被减速",
-            "并且无法传送"
+            "Struck mobs are slowed and cannot teleport."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodOsmium);
 
     public static final MaterialTrait SFW_OSMIUM_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("增重")
+        .setTraitName("Increased Mass")
         .setLore(
-            "获得减速效果",
-            "受到伤害时,攻击者会被击退"
+            "Attackers will be knocked back.",
+            "Gives you slow when procced"
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateOsmium)
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateOsmium);
@@ -2588,21 +2437,20 @@ public final class Traits {
     public static final MaterialTrait SFW_OSMIUM_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("画笔")
+        .setTraitName("Draw")
         .setLore(
-            "有5%的几率被承受伤害治疗"
+            "5% chance to heal by damage dealt."
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::linksOsmium);
 
     public static final MaterialTrait SFW_OSMIUM_SUPERALLOY_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("野蛮人")
+        .setTraitName("Brute")
         .setLore(
-            "获得挖掘疲劳效果",
-            "命中的目标会被禁锢",
-            "+100% 输出伤害",
-            "有33的几率额外 +100% 输出伤害"
+            "Slow swinging speed. Hit enemies are stunned",
+            "briefly. Damage +100% with an additional 33%",
+            "chance to crit for a further +100%"
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headOsmiumSuperalloy)
         .addConsumer(TraitEventType.TICK, TickEvents::headOsmiumSuperalloy);
@@ -2610,41 +2458,38 @@ public final class Traits {
     public static final MaterialTrait SFW_OSMIUM_SUPERALLOY_ROD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("击退")
+        .setTraitName("Tuff Stuff")
         .setLore(
-            "击退任何命中的生物",
-            "有几率禁锢目标"
+            "Knocks back anything hit and stuns."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headHard);
 
     public static final MaterialTrait SFW_OSMIUM_SUPERALLOY_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("闪电风暴")
+        .setTraitName("Tempest")
         .setLore(
-            "当装备全套有闪电风暴特性的盔甲时",
-            "有几率在周围召唤闪电风暴"
+            "When wearing 4 pieces, chance when hit",
+            "to summon a tempest."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateOsmiumSuperalloy);
 
     public static final MaterialTrait SFW_OSMIUM_SUPERALLOY_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("部分衰变")
+        .setTraitName("Partial Decay")
         .setLore(
-            "有几率随机对周围生物造成伤害",
-            "不会致死"
+            "Chance to damage random nearby living",
+            "things. Will never kill."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::linksOsmiumSuperalloy);
 
     public static final MaterialTrait SFW_UNPATENTABLIUM_HEAD = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("创新")
+        .setTraitName("Innovation")
         .setLore(
-            "在白天: ",
-            "+100% 工具经验获取",
-            "+100% 玩家经验获取"
+            "+100% Tool and Player EXP during the day."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headUnpatentabilum)
         .addConsumer(TraitEventType.BLOCK_BREAK, BlockBreakEvents::headUnpatentabilum);
@@ -2653,32 +2498,204 @@ public final class Traits {
         // Special case in ItemDrop and PlayerDeath
         .setPartType(MaterialTrait.PROP_ROD)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("无形权利")
+        .setTraitName("Incorporeal Right")
         .setLore(
-            "工具无法被丢弃",
-            "不会在死亡时掉落"
+            "Tool cannot be dropped or lost on death."
         );
 
     public static final MaterialTrait SFW_UNPATENTABLIUM_PLATES = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("强力凝视")
+        .setTraitName("Intense Gaze")
         .setLore(
-            "你看向的实体会传送到你身边",
-            "不会对玩家、凋灵、末影龙生效"
+            "Entities you look at will teleport to you.",
+            "Does not work on players or bosses."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateUnpatentabilum);
 
     public static final MaterialTrait SFW_UNPATENTABLIUM_LINKS = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.SLIMEFUN_WARFARE_NOTE)
-        .setTraitName("圆桌骑士")
+        .setTraitName("KOTR")
         .setLore(
-            "受到伤害时有几率",
-            "在周围生成圆桌骑士",
-            "(好吧,是铁傀儡)"
+            "Chance, when hit, to summon a Knight",
+            "of the Round. (It's a Golem ;))"
         )
         .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateMetal);
+
+    // endregion
+
+    // region DynaTech
+
+    public static final MaterialTrait DYN_STAINLESS_STEEL_HEAD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_HEAD)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Super Dooper Stainless")
+        .setLore(
+            "Like Steel or MagSteel but yet more absurd."
+        )
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headStainlessSteel);
+
+    public static final MaterialTrait DYN_STAINLESS_STEEL_ROD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_ROD)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Cutlery")
+        .setLore(
+            "Hitting animals will directly feed you. Grim"
+        )
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::rodStainlessSteel);
+
+    public static final MaterialTrait DYN_STAINLESS_STEEL_PLATES = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_PLATES)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("The Standard")
+        .setLore(
+            "Damage taken reduced by 5%"
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::plateStainlessSteel);
+
+    public static final MaterialTrait DYN_STAINLESS_STEEL_LINKS = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_LINKS)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Water Safe")
+        .setLore(
+            "Gives you water breathing"
+        )
+        .addConsumer(TraitEventType.TICK, TickEvents::linksStainlessSteel);
+
+    public static final MaterialTrait DYN_VEX_GEM_BINDING = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_BINDING)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("NoClip")
+        .setLore(
+            "Right click while holding to randomly teleport.",
+            "5 min cooldown."
+        )
+        .addConsumer(TraitEventType.INTERACT, InteractionEvents::bindVex);
+
+    public static final MaterialTrait DYN_VEX_GEM_GAMBESON = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_GAMBESON)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Annoying")
+        .setLore(
+            "Vex gems shouldn't be used like this!"
+        )
+        .addConsumer(TraitEventType.TICK, TickEvents::gambesonVex);
+
+    public static final MaterialTrait DYN_STAR_DUST_HEAD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_HEAD)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Bright Fury")
+        .setLore(
+            "Attacks dazzle and blind while being.",
+            "50% more powerful."
+        )
+        .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headStarDust);
+
+    public static final MaterialTrait DYN_STAR_DUST_ROD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_ROD)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Yvaine")
+        .setLore(
+            "Gives an ethereal glow and makes villagers",
+            "friendlier to you."
+        )
+        .addConsumer(TraitEventType.TICK, TickEvents::rodStarDust);
+
+    public static final MaterialTrait DYN_STAR_DUST_PLATES = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_PLATES)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Starshine")
+        .setLore(
+            "5% chance to heal 1/2 heart during the night"
+        )
+        .addConsumer(TraitEventType.TICK, TickEvents::plateStardust);
+
+    public static final MaterialTrait DYN_STAR_DUST_LINKS = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_LINKS)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Bright-burn")
+        .setLore(
+            "Gives on stack of Burning Bright! With 4 ",
+            "stacks, hostile mobs are repelled (not bosses)."
+        )
+        .addConsumer(TraitEventType.TICK, TickEvents::brightBurn);
+
+    public static final MaterialTrait DYN_GHOSTLY_ESSENCE_BINDING = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_BINDING)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Incorporeal")
+        .setLore(
+            "Projectiles just pass right through you."
+        )
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::bindGhostly);
+
+    public static final MaterialTrait DYN_GHOSTLY_ESSENCE_ROD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_ROD)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("HyperCube [B]")
+        .setLore(
+            "Only works with both [A] and [B]. Shift + Right",
+            "click to store a location. Right click to recall",
+            "to that location. (CD: 10m)"
+        )
+        .addConsumer(TraitEventType.INTERACT, InteractionEvents::rodGhostly);
+
+    public static final MaterialTrait DYN_GHOSTLY_ESSENCE_GAMBESON = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_GAMBESON)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Ghost in the shell")
+        .setLore(
+            "Slowly damages all nearby mobs at the cost of durability.",
+            "Mobs cannot die due to this effect."
+        )
+        .addConsumer(TraitEventType.TICK, TickEvents::gambesonGhostly);
+
+    public static final MaterialTrait DYN_GHOSTLY_ESSENCE_LINKS = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_LINKS)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Ghostly")
+        .setLore(
+            "Hover like a ghost"
+        )
+        .addConsumer(TraitEventType.TICK, TickEvents::linksGhostly);
+
+    public static final MaterialTrait DYN_TESSERACT_HEAD = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_HEAD)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("HyperCube [A]")
+        .setLore(
+            "Only works with both [A] and [B]. Shift + Right",
+            "click to store a location. Right click to recall",
+            "to that location. (CD: 10m)"
+        )
+        .addConsumer(TraitEventType.INTERACT, InteractionEvents::headTessMat);
+
+    public static final MaterialTrait DYN_TESSERACT_PLATES = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_PLATES)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Hyberbolic Tesseration")
+        .setLore(
+            "When in your personal home, you store energy.",
+            "Damage taken is removed from this energy pool.",
+            "Required 8x pieces to function and caps at 50",
+            "per piece."
+        )
+        .addConsumer(TraitEventType.TICK, TickEvents::hyperbolic)
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::hyperbolic);
+
+    public static final MaterialTrait DYN_TESSERACT_LINKS = new MaterialTrait()
+        .setPartType(MaterialTrait.PROP_LINKS)
+        .setAddedBy(SupportedPluginsManager.DYNATECH_NOTE)
+        .setTraitName("Hyberbolic Tesseration")
+        .setLore(
+            "When in your personal home, you store energy.",
+            "Damage taken is removed from this energy pool.",
+            "Required 8x pieces to function and caps at 50",
+            "per piece."
+        )
+        .addConsumer(TraitEventType.TICK, TickEvents::hyperbolic)
+        .addConsumer(TraitEventType.PLAYER_DAMAGED, PlayerDamagedEvents::hyperbolic);
 
     // endregion
 
@@ -2687,50 +2704,55 @@ public final class Traits {
     public static final MaterialTrait TNS_DAXI_STRENGTH = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_HEAD)
         .setAddedBy(SupportedPluginsManager.TRANSCENDENCE_NOTE)
-        .setTraitName("超能力")
+        .setTraitName("The Power of Daxi")
         .setLore(
-            "有20%的几率释放出超能力核心的力量",
-            "造成100%额外伤害"
+            "Has a chance on hit to unleash the",
+            "power of the Strength Daxi for an",
+            "additional 100% damage."
         )
         .addConsumer(TraitEventType.ENTITY_DAMAGED, EntityDamageEvents::headDaxiStrength);
 
     public static final MaterialTrait TNS_DAXI_ABSORPTION = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.TRANSCENDENCE_NOTE)
-        .setTraitName("超能力联合(A)")
+        .setTraitName("Unite - Absorption")
         .setLore(
-            "当4种超能力(A, F, S, R)联合起来后",
-            "你死亡时可以保留超能力核心的效果"
+            "When all four defensive Daxi unite,",
+            "you will be granted the power to",
+            "retain your Daxi through death."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateDaxiAbsorption);
 
     public static final MaterialTrait TNS_DAXI_FORTITUDE = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.TRANSCENDENCE_NOTE)
-        .setTraitName("超能力联合(F)")
+        .setTraitName("Unite - Fortitude")
         .setLore(
-            "当4种超能力(A, F, H, R)联合起来后",
-            "你死亡时可以保留超能力核心的效果"
+            "When all four defensive Daxi unite,",
+            "you will be granted the power to",
+            "retain your Daxi through death."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateDaxiFortitude);
 
     public static final MaterialTrait TNS_DAXI_SATURATION = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.TRANSCENDENCE_NOTE)
-        .setTraitName("超能力联合(H)")
+        .setTraitName("Unite - Saturation")
         .setLore(
-            "当4种超能力(A, F, H, R)联合起来后",
-            "你死亡时可以保留超能力核心的效果"
+            "When all four defensive Daxi unite,",
+            "you will be granted the power to",
+            "retain your Daxi through death."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateDaxiSaturation);
 
     public static final MaterialTrait TNS_DAXI_REGENERATION = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_PLATES)
         .setAddedBy(SupportedPluginsManager.TRANSCENDENCE_NOTE)
-        .setTraitName("超能力联合(R)")
+        .setTraitName("Unite - Regeneration")
         .setLore(
-            "当4种超能力(A, F, H, R)联合起来后",
-            "你死亡时可以保留超能力核心的效果"
+            "When all four defensive Daxi unite,",
+            "you will be granted the power to",
+            "retain your Daxi through death."
         )
         .addConsumer(TraitEventType.TICK, TickEvents::plateDaxiRegeneration);
 
@@ -2741,16 +2763,19 @@ public final class Traits {
     public static final MaterialTrait NTW_UTLIMANINIUM = new MaterialTrait()
         .setPartType(MaterialTrait.PROP_LINKS)
         .setAddedBy(SupportedPluginsManager.NETWORKS_NOTE)
-        .setTraitName("接入网络")
+        .setTraitName("Feeling Connected")
         .setLore(
-            "你可以通过头盔发射出的信号",
-            "远程接入一个网格",
+            "Allows you to connect wirelessly",
+            "to a network using direct nural",
+            "connection via your helmet.",
             "",
-            "在空手时:",
-            ThemeUtils.CLICK_INFO + "Shift + 右键点击" + ThemeUtils.PASSIVE + "绑定网格",
-            ThemeUtils.CLICK_INFO + "左键点击" + ThemeUtils.PASSIVE + "打开绑定的网格",
+            "Shift + Left Click with an empty",
+            "hand to bind to a grid.",
             "",
-            ThemeUtils.ITEM_MOLTEN_METAL + "该特性仅用于头盔时有效"
+            "Left Click air with an empty hand to",
+            "try to open the bound grid.",
+            "",
+            "Will only work on a helmet."
         )
         .addConsumer(TraitEventType.INTERACT, InteractionEvents::linksUltimaninium);
 

@@ -7,7 +7,6 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
-import net.guizhanss.minecraft.slimetinker.utils.LangUtils;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -27,16 +26,17 @@ public class PartTemplate extends UnplaceableBlock {
     }
 
     public String getName(String material) {
-        return LangUtils.getMaterialName(material) + ThemeUtils.ITEM_PART + " " + name;
+        return ThemeUtils.toTitleCase(material) + ThemeUtils.ITEM_PART + " " + name;
     }
 
     public List<String> getLore(String material, ChatColor color) {
         List<String> list = new ArrayList<>();
         list.add("");
-        list.add(ThemeUtils.PASSIVE + "一个部件,本身没有任何作用");
-        list.add(ThemeUtils.PASSIVE + "但可以在匠魂组装台组装成匠魂装备");
+        list.add(ThemeUtils.PASSIVE + "A tool part. Useless on it's own but can");
+        list.add(ThemeUtils.PASSIVE + "be made into something greater at the");
+        list.add(ThemeUtils.PASSIVE + "Tinker's table.");
         list.add("");
-        list.add(ThemeUtils.CLICK_INFO + "材质: " + color + LangUtils.getMaterialName(material));
+        list.add(ThemeUtils.CLICK_INFO + "Material : " + color + ThemeUtils.toTitleCase(material));
         return list;
     }
 
