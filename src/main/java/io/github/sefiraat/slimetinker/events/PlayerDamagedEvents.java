@@ -135,10 +135,10 @@ public final class PlayerDamagedEvents {
                 p.getWorld().spawnParticle(Particle.REDSTONE, p.getLocation(), 30, 3, 3, 3, 1, dustOptions2);
                 Particle.DustOptions dustOptions3 = new Particle.DustOptions(Color.fromRGB(40, 40, 40), 2);
                 p.getWorld().spawnParticle(Particle.REDSTONE, p.getLocation(), 30, 3, 3, 3, 1, dustOptions3);
-                p.sendMessage(ThemeUtils.WARNING + "保护技能已使你免于死亡。现在保护技能进入冷却了,小心!");
+                p.sendMessage(ThemeUtils.WARNING + "Protective has saved you from death. It's now on cooldown - take care!");
                 ItemUtils.setCooldown(i, "PROTECTIVE", 1200000);
             } else {
-                p.sendMessage(ThemeUtils.WARNING + "保护技能冷却中");
+                p.sendMessage(ThemeUtils.WARNING + "Skill is on cooldown");
             }
 
         }
@@ -415,15 +415,15 @@ public final class PlayerDamagedEvents {
             int roll = GeneralUtils.roll(100);
             ItemStack i;
             if (roll < 5) {
-                i = Materials.NUGGET_CAST_IE_ADAMANTITE.clone();
+                i = Materials.NUGGET_CAST_ADAMANTITE.clone();
             } else if (roll < 10) {
-                i = Materials.NUGGET_CAST_IE_TITANIUM.clone();
+                i = Materials.NUGGET_CAST_TITANIUM.clone();
             } else if (roll < 15) {
-                i = Materials.NUGGET_CAST_IE_MYTHRIL.clone();
+                i = Materials.NUGGET_CAST_MYTHRIL.clone();
             } else if (roll < 20) {
-                i = Materials.NUGGET_CAST_IE_MAGNONIUM.clone();
+                i = Materials.NUGGET_CAST_MAGNONIUM.clone();
             } else if (roll < 25) {
-                i = Materials.NUGGET_CAST_IE_MAGSTEEL.clone();
+                i = Materials.NUGGET_CAST_MAGSTEEL.clone();
             } else if (roll < 30) {
                 i = Materials.NUGGET_CAST_REINFORCED.clone();
             } else if (roll < 35) {
@@ -460,7 +460,7 @@ public final class PlayerDamagedEvents {
     public static void plateInfinity(EventFriend friend) {
         ItemStack i = friend.getActiveStack();
         ItemMeta im = i.getItemMeta();
-        NamespacedKey k = Keys.ARMOUR_IE_INFINITY_CAPACITY_STORED;
+        NamespacedKey k = Keys.ARMOUR_INFINITE_CAPACITY_STORED;
         double d = PersistentDataAPI.getDouble(im, k, 0);
         if (d < 5) {
             d = Math.min(5, d + friend.getInitialDamage() / 10);
