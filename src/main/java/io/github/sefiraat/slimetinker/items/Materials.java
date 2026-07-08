@@ -1003,7 +1003,7 @@ public final class Materials {
         Material.IRON_BLOCK,
         ThemeItemType.CRAFTING,
         "Advanced Alloy Block",
-        "A block of advacned alloy"
+        "A block of advanced alloy"
     );
 
     public static final SlimefunItemStack BLOCK_CAST_MAG_THOR = ThemeUtils.themedItemStack(
