@@ -4,6 +4,6 @@ rules:
     upstream: Sefiraat:master
     mergeMethod: merge
     assignees:
-      - ybw0014
+      - wickidcow
     conflictReviewers:
-      - ybw0014
+      - wickidcow
